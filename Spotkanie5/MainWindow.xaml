@@ -1,0 +1,47 @@
+﻿<Window x:Class="Spotkanie5.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Spotkanie5"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        
+        <Slider x:Name="slider" HorizontalAlignment="Center" VerticalAlignment="Center" Height="20" Margin="169,35,165,267.8" Width="186" Maximum="100" IsSnapToTickEnabled="True" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="169,100,0,0" TextWrapping="Wrap" Text="{Binding ElementName=slider, Path=Value}" VerticalAlignment="Top" Height="20" Width="116"/>
+
+        <Rectangle Grid.Column="0" Fill="Red" />
+        <Rectangle Grid.Column="1" Fill="PowderBlue" />
+        <Rectangle Grid.Column="2" Fill="Green" />
+        <Slider Name="slider2" Grid.Column="3" />
+
+        <StackPanel Orientation="Vertical" Grid.Column="0" >
+            <Label Content="Imie: " HorizontalAlignment="Right" Margin="5,0,0,0"/>
+            <Label Content="Nazwisko: " HorizontalAlignment="Right" Margin="5,0,0,0"/>
+            <Label Content="asda: " HorizontalAlignment="Right" Margin="5,0,0,0"/>
+            <Label Content="asdsdasd: " HorizontalAlignment="Right" Margin="5,0,0,0"/>
+            <Label Content="Imisadasdae: " HorizontalAlignment="Right" Margin="5,0,0,0"/>
+        </StackPanel>
+        
+        <StackPanel Orientation="Vertical" Grid.Column="1">
+            <TextBox Name="textBox1" Margin="5,5,5,5"/>
+            <TextBox Name="textBox2" Margin="5,5,5,5"/>
+            <TextBox Name="textBox3" Margin="5,5,5,5"/>
+            <TextBox Name="textBox4" Margin="5,5,5,5"/>
+            <TextBox Name="textBox5" Margin="5,5,5,5"/>
+        </StackPanel>
+        <Button Content="asdasd" Grid.Column="2" Height="30" VerticalAlignment="Bottom" Margin="0,0,0,50" Click="Button_Click"/>
+        <ListView Grid.ColumnSpan="4" Grid.Row="1"/>
+    </Grid>
+</Window>

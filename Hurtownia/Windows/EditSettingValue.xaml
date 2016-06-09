@@ -1,0 +1,23 @@
+﻿<Window x:Class="Hurtownia.Windows.EditSettingValue"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Hurtownia.Windows"
+        mc:Ignorable="d"
+        Title="EditSettingValue" Height="120" Width="200">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="25" />
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0">
+            <Label Name="LabelKey" Content="" Margin="10,0,0,0" />
+            <TextBox Name="TextBoxValue" Height="20" Margin="10, 0, 10, 0" />
+        </StackPanel>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Name="ButtonOk" Content="OK" Width="50" Click="ButtonOk_Click" />
+            <Button Name="ButtonCancel" Margin="5,0,0,0" Content="Cancel" Width="50" Click="ButtonCancel_Click" />
+        </StackPanel>
+    </Grid>
+</Window>

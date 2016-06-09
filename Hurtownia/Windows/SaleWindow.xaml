@@ -1,0 +1,58 @@
+﻿<Window x:Class="Hurtownia.Windows.SaleWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Hurtownia.Windows"
+        mc:Ignorable="d"
+        Title="SaleWindow" Height="400" Width="600">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25" />
+            <RowDefinition Height="25" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="100" />
+            <RowDefinition Height="25" />
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+            <Label Content="Faktura nr: " />
+            <TextBox Width="50" Name="TextBoxDocNumber" />
+            <Label Margin="5,0,0,0" Content="Data sprzedaży: " />
+            <DatePicker Name="DatePickerDate" Width="auto" />
+            <Label Margin="5,0,0,0" Content="Klient: " />
+            <Button Content="Wybierz klienta..." MaxWidth="200" Width="auto" />
+        </StackPanel>
+        <StackPanel Grid.Row="1" Orientation="Horizontal">
+            <Label Content="Produkt: " />
+            <ComboBox IsEditable="True" Width="200" />
+            <Label Content=" Ilość: " />
+            <TextBox Text="15" Width="50" TextAlignment="Center" />
+            <Button Margin="5,0,0,0" Content="Dodaj" />
+        </StackPanel>
+
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="150" />
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0" Orientation="Vertical" HorizontalAlignment="Right">
+                <Label HorizontalContentAlignment="Right" FontSize="22" FontWeight="Bold" Content="Suma (brutto): " />
+                <Label HorizontalContentAlignment="Right" Content="Suma (VAT): " />
+                <Label HorizontalContentAlignment="Right" Content="Suma (netto): " />
+            </StackPanel>
+            <StackPanel Grid.Column="1" Orientation="Vertical">
+                <Label FontSize="22" FontWeight="Bold" Content="0,00" />
+                <Label Content="0,00" />
+                <Label Content="0,00" />
+            </StackPanel>
+        </Grid>
+
+
+        <StackPanel Grid.Row="4" HorizontalAlignment="Right" Orientation="Horizontal">
+            <Button Content="Anuluj" />
+            <Button Margin="10,0,0,0" Content="Drukuj" />
+        </StackPanel>
+
+    </Grid>
+</Window>

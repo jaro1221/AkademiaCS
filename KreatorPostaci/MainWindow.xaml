@@ -1,0 +1,57 @@
+﻿<Window x:Class="KreatorPostaci.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KreatorPostaci"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="550">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        <ListView ItemsSource="{Binding CharacterList}" Name="ListView1" Margin="5" Grid.Column="0">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Nick" DisplayMemberBinding="{Binding Nickname}"/>
+                    <GridViewColumn Header="Level" DisplayMemberBinding="{Binding Level}"/>
+                    <GridViewColumn Header="Race" DisplayMemberBinding="{Binding Race}" />
+                    <GridViewColumn Header="Profession" DisplayMemberBinding="{Binding Profession}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <StackPanel Grid.Column="1" Margin="5">
+            <Label HorizontalAlignment="Center" Content="Character" FontSize="20"/>
+            <StackPanel>
+                <Label Content="Nick:"/>
+                <TextBox Name="NickTextBox"/>
+            </StackPanel>
+            <StackPanel>
+                <Label Content="Level:"/>
+                <TextBox Name="LevelTextBox"/>
+            </StackPanel>
+            <StackPanel>
+                <Label Content="Race"/>
+                <ComboBox Name="RaceComboBox" />
+
+            </StackPanel>
+            <StackPanel>
+                <Label Content="Profession"/>
+                <ComboBox Name="ProfessionComboBox" />
+            </StackPanel>
+            <StackPanel>
+                <Label Content="Weight"/>
+                <StackPanel Orientation="Horizontal">
+                    <Button Width="20" Content="-" Click="Button_Click_1"/>
+                    <TextBox Name="WeightTextBox" Width="100" Text="{Binding Path=Weight}"/>
+                    <Button Width="20" Content="+" Click="Button_Click"/>
+                </StackPanel>
+            </StackPanel>
+            <Button Name="AddButton" Content="Add" Margin="0,40,0,0" Click="AddButton_Click"/>
+            <Button Name="DeleteButton" Content="Delete" Click="DeleteButton_Click"/>
+            <Button Name="SaveButton" Content="Save" Click="SaveButton_Click" />
+            <Button Name="LoadButton" Content="Load" Click="LoadButton_Click" />
+        </StackPanel>
+    </Grid>
+</Window>
