@@ -15,7 +15,13 @@
         public string Ean { get; set; }
         public float Price { get; set; }
         public float Quantity { get; set; }
-        public float Cost { get; set; }
+
+        public float Cost
+        {
+            get { return Price*Quantity; }
+            set { }
+        }
+
         public Unit EnumUnit { get; set; }
 
         public Product()

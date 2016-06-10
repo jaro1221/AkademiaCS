@@ -11,7 +11,16 @@ namespace Hurtownia.Controllers
     public class Products
     {
         public static ObservableCollection<Product> ProductsList { get; set; } = new ObservableCollection<Product>();
-        public static int NumberOfProducts { get; set; }
+
+        public static int NumberOfProducts
+        {
+            get { return ProductsList.Count; }
+            set
+            {
+                
+            }
+        }
+
         public static string FilePath { get; set; } = Environment.CurrentDirectory + "..\\Files\\products.xml";
 
         public static ObservableCollection<string> GetProductsListAsString()
@@ -24,10 +33,10 @@ namespace Hurtownia.Controllers
             return StringsList;
         }
 
-        private static void SetNumberOfProducts()
-        {
-            NumberOfProducts = ProductsList.Count;
-        }
+        //private static void SetNumberOfProducts()
+        //{
+        //    NumberOfProducts = ProductsList.Count;
+        //}
 
         internal static void AddProduct(string name, float quantity)
         {
@@ -36,16 +45,18 @@ namespace Hurtownia.Controllers
                 if (product.Name == name)
                 {
                     product.Quantity = product.Quantity + quantity;
+
                 }
             }
             SaveProducts();
+           // SetNumberOfProducts();
         }
 
         public static void AddProduct(Product newProduct)
         {
             ProductsList.Add(newProduct);
             SaveProducts();
-            SetNumberOfProducts();
+           // SetNumberOfProducts();
 
         }
 
@@ -53,7 +64,7 @@ namespace Hurtownia.Controllers
         {
             ProductsList.RemoveAt(index);
             SaveProducts();
-            SetNumberOfProducts();
+          //  SetNumberOfProducts();
         }
 
         private static bool SaveProducts()
@@ -144,7 +155,7 @@ namespace Hurtownia.Controllers
             {
                 if (product1.Name == product.Name)
                 {
-                    product1.Quantity = product1.Quantity + product.Quantity;
+                    product1.Quantity =+ product.Quantity;
                 }
             }
             SaveProducts();
