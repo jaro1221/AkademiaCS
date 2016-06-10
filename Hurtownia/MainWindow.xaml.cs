@@ -19,8 +19,9 @@ namespace Hurtownia
         {
             InitializeComponent();
             LoadData();
-            
+
         }
+
 
         private void LoadData()
         {

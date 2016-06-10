@@ -41,13 +41,7 @@ namespace Hurtownia.Controllers
             }
             catch (Exception ex)
             {
-                if (ex is FileNotFoundException)
-                {
-                    using (var sw = new StreamWriter(FilePath))
-                    {
-                        sw.WriteLine("companyname=Nazwa firmy=\ncompanyowner=Właściciel firmy=");
-                    }
-                }
+                
                 MessageBox.Show(ex.Message);
             }
         }
