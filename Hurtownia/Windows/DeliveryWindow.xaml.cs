@@ -11,11 +11,12 @@ namespace Hurtownia.Windows
     public partial class DeliveryWindow : Window
     {
         public ObservableCollection<Product> ProductsListOfDelivery { get; set; } = new ObservableCollection<Product>();
-        public Product Product { get; set; }
-        private Delivery newDelivery = new Delivery();
+        //public Product Product { get; set; }
+        private Delivery newDelivery;
         public DeliveryWindow()
         {
             InitializeComponent();
+            newDelivery = new Delivery();
             ListViewDeliveryList.ItemsSource = newDelivery.DeliveryList;
             ComboBoxProducts.ItemsSource = Products.GetProductsListAsString();
         }
@@ -23,12 +24,18 @@ namespace Hurtownia.Windows
         private void ButtonAddProduct_Click(object sender, RoutedEventArgs e)
         {
             string name = ComboBoxProducts.Text;
-            Product = Products.GetProduct(name);
-            Product.Price = float.Parse(TextBoxPrice.Text);
-            Product.Quantity = float.Parse(TextBoxQuantity.Text);
-            Product.Cost = Product.Price*Product.Quantity;
 
-            newDelivery.AddProduct(Product);
+            Product product = Products.GetProduct(name);
+            product.Price = float.Parse(TextBoxPrice.Text);
+            product.Quantity = float.Parse(TextBoxQuantity.Text);
+            product.Cost = product.Price*product.Quantity;
+
+            ////Product = Products.GetProduct(name);
+            //Product.Price = float.Parse(TextBoxPrice.Text);
+            //Product.Quantity = float.Parse(TextBoxQuantity.Text);
+            //Product.Cost = Product.Price*Product.Quantity;
+
+            newDelivery.AddProduct(product);
             ResetFields();
             LabelCostOfProducts.Content = newDelivery.CostOfProducts;
         }

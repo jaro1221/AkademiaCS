@@ -157,7 +157,7 @@ namespace Hurtownia.Controllers
             {
                 if (product.Name == name)
                 {
-                    return product;
+                    return new Product(name, product.Code, product.Ean, product.Price, product.Quantity, product.EnumUnit);
                 }
             }
             return null;
