@@ -71,6 +71,10 @@ namespace Hurtownia.Controllers
             }
             catch (Exception ex)
             {
+                if (ex is FileNotFoundException)
+                {
+                    var sw = new StreamWriter(FilePath);
+                }
                 MessageBox.Show(ex.Message);
                 return false;
             }

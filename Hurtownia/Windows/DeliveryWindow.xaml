@@ -16,9 +16,9 @@
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal">
             <Label Height="20" Padding="0,0,0,0" Content="Data dostawy: " />
-            <DatePicker Height="20" Padding="0,0,0,0" />
+            <DatePicker Name="DateOfDelivery" Height="20" Padding="0,0,0,0" />
             <Label Height="20" Margin="10,0,0,0" Padding="0,0,0,0" Content="Nazwa dostawcy: " />
-            <TextBox Height="20" Width="100" Padding="0,0,0,0" />
+            <TextBox Name="NameDelivery" Height="20" Width="100" Padding="0,0,0,0" />
 
         </StackPanel>
 
@@ -30,8 +30,8 @@
             <TextBox Height="20" Name="TextBoxQuantity" Width="40" />
             <Label Margin="5,0,0,0" Height="20" Padding="0,0,0,0" Content="Cena: " />
             <TextBox Height="20" Name="TextBoxPrice" Width="40" />
-            <Button Height="20" Width="50" Name="ButtonAddProduct" Content="Dodaj" Margin="10,2,0,0"
-                    Click="ButtonAddProduct_Click" VerticalAlignment="Top" />
+            <Button Width="50" Name="ButtonAddProduct" Content="Dodaj" Margin="10,2,0,2.8"
+                    Click="ButtonAddProduct_Click" />
         </StackPanel>
         <ListView Name="ListViewDeliveryList" Grid.Row="2">
             <ListView.View>
@@ -46,16 +46,16 @@
             </ListView.View>
         </ListView>
 
-        <StackPanel Grid.Row="3" HorizontalAlignment="Right" Orientation="Horizontal" VerticalAlignment="Center">
-            
+        <StackPanel Grid.Row="3" HorizontalAlignment="Right" Orientation="Horizontal" VerticalAlignment="Center" Margin="0,15.4,60.8,14.6">
+
             <Label FontSize="16" Margin="30,0,0,0" Height="20" Padding="0" Content="SUMA:" />
             <Label Name="LabelCostOfProducts" FontSize="16" Margin="10,0,0,0" Height="20" Padding="0" Content="0,00" />
 
         </StackPanel>
 
         <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Right">
-            <Button Name="ButtonCancel" Content="Anuluj" Click="ButtonCancel_Click" />
-            <Button Margin="5,0,0,-0.2" Name="ButtonAdd" Content="Dodaj" Click="ButtonAdd_Click" />
+            <Button Name="ButtonCancel" Content="Anuluj" Click="ButtonCancel_Click" Height="25" Margin="0,0,0,-0.2" VerticalAlignment="Bottom" />
+            <Button Margin="5,0,0,-0.2" Name="ButtonAdd" Content="Dodaj" Click="ButtonAdd_Click" RenderTransformOrigin="0.5,0.504" Height="25" VerticalAlignment="Top" />
 
         </StackPanel>
 

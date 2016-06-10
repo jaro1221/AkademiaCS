@@ -29,6 +29,18 @@ namespace Hurtownia.Controllers
             NumberOfProducts = ProductsList.Count;
         }
 
+        internal static void AddProduct(string name, float quantity)
+        {
+            foreach (var product in ProductsList)
+            {
+                if (product.Name == name)
+                {
+                    product.Quantity = product.Quantity + quantity;
+                }
+            }
+            SaveProducts();
+        }
+
         public static void AddProduct(Product newProduct)
         {
             ProductsList.Add(newProduct);
@@ -81,6 +93,10 @@ namespace Hurtownia.Controllers
             }
             catch (Exception ex)
             {
+                if (ex is FileNotFoundException)
+                {
+                    var sw = new StreamWriter(FilePath);
+                }
                 MessageBox.Show(ex.Message);
                 return false;
             }
@@ -120,6 +136,19 @@ namespace Hurtownia.Controllers
             ProductsList.RemoveAt(index);
             ProductsList.Insert(index, editedProduct);
             SaveProducts();
+        }
+
+        public static void EditProduct(int index, Product product)
+        {
+            foreach (var product1 in ProductsList)
+            {
+                if (product1.Name == product.Name)
+                {
+                    product1.Quantity = product1.Quantity + product.Quantity;
+                }
+            }
+            SaveProducts();
+
         }
 
         public static Product GetProduct(string name)

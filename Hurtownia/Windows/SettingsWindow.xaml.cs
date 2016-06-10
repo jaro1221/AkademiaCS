@@ -5,6 +5,7 @@ using System.Windows;
 using System.Windows.Input;
 using System.Xml.Serialization;
 using Hurtownia.Models;
+using Hurtownia.Controllers;
 
 namespace Hurtownia.Windows
 {
@@ -16,21 +17,16 @@ namespace Hurtownia.Windows
         public SettingsWindow()
         {
             InitializeComponent();
+            ListViewSettings.ItemsSource = SettingsValues.SettingValuesList;
 
         }
 
-        private void SaveSettingsValues()
-        {
-            var filename = Environment.CurrentDirectory + "..\\Files\\settings.xml";
-            using (var sw = new StreamWriter(filename))
-            {
-                var serializer = new XmlSerializer(typeof(ObservableCollection<SettingValue>));
-            }
-        }
+       
+
 
         private void ButtonSave_Click(object sender, RoutedEventArgs e)
         {
-            SaveSettingsValues();
+            SettingsValues.SaveSettings();
             Close();
         }
 
@@ -38,11 +34,15 @@ namespace Hurtownia.Windows
         private void ListViewSettings_OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             var index = ListViewSettings.SelectedIndex;
+            EditSettingValue editSettingWindow = new EditSettingValue(index);
+            editSettingWindow.Show();
         }
 
         private void ButtonCancel_Click(object sender, RoutedEventArgs e)
         {
             Close();
         }
+
+       
     }
 }

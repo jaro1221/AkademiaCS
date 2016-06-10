@@ -17,16 +17,27 @@ namespace Hurtownia
     {
         public MainWindow()
         {
-            LoadData();
             InitializeComponent();
+            LoadData();
+            
         }
 
         private void LoadData()
         {
             Clients.LoadClients();
             Products.LoadProducts();
+            Deliveries.LoadDeliveries();
+            SettingsValues.LoadSettings();
+
+            LoadLabelsContent();
         }
-        
+
+        private void LoadLabelsContent()
+        {
+            LabelCompanyName.Content = SettingsValues.GetValue("companyname");
+            LabelCompanyOwner.Content = SettingsValues.GetValue("companyowner");
+        }
+
         private void SaleButton_Click(object sender, RoutedEventArgs e)
         {
             OpenSaleWindow();
@@ -73,13 +84,13 @@ namespace Hurtownia
 
         private void ButtonDelivery_Click(object sender, RoutedEventArgs e)
         {
-            OpenDeliveryWindow();
+            OpenDeliveriesWindow();
         }
 
-        private void OpenDeliveryWindow()
+        private void OpenDeliveriesWindow()
         {
-            var deliveryWindow = new DeliveryWindow();
-            deliveryWindow.Show();
+            var deliveriesWindow = new DeliveriesWindow();
+            deliveriesWindow.Show();
         }
     }
 }

@@ -12,16 +12,13 @@ namespace Hurtownia.Windows
     {
         public ObservableCollection<Product> ProductsListOfDelivery { get; set; } = new ObservableCollection<Product>();
         public Product Product { get; set; }
+        private Delivery newDelivery = new Delivery();
         public DeliveryWindow()
         {
             InitializeComponent();
-            ListViewDeliveryList.ItemsSource = Delivery.DeliveryList;
+            ListViewDeliveryList.ItemsSource = newDelivery.DeliveryList;
             ComboBoxProducts.ItemsSource = Products.GetProductsListAsString();
         }
-
-
-
-        
 
         private void ButtonAddProduct_Click(object sender, RoutedEventArgs e)
         {
@@ -31,9 +28,9 @@ namespace Hurtownia.Windows
             Product.Quantity = float.Parse(TextBoxQuantity.Text);
             Product.Cost = Product.Price*Product.Quantity;
 
-            Delivery.AddProduct(Product);
+            newDelivery.AddProduct(Product);
             ResetFields();
-            LabelCostOfProducts.Content = Delivery.CostOfProducts;
+            LabelCostOfProducts.Content = newDelivery.CostOfProducts;
         }
 
         private void ResetFields()
@@ -46,19 +43,22 @@ namespace Hurtownia.Windows
 
         private void ButtonAdd_Click(object sender, RoutedEventArgs e)
         {
-
+            newDelivery.DateOfDelivery = DateOfDelivery.DisplayDate.Date;
+            newDelivery.DeliverName = NameDelivery.Text;
+            Deliveries.AddNewDelivery(newDelivery);
+            MessageBox.Show("Dodano dostawę");
+            this.Close();
         }
 
         private void ButtonCancel_Click(object sender, RoutedEventArgs e)
         {
-
+            this.Close();
         }
 
         private void ButtonNewProduct_Click(object sender, RoutedEventArgs e)
         {
             AddProductWindow addProductWindow = new AddProductWindow();
             addProductWindow.Show();
-
         }
     }
 }
