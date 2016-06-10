@@ -1,4 +1,6 @@
 ﻿using System.Collections.Specialized;
+using Hurtownia;
+using Hurtownia.Controllers;
 
 namespace Hurtownia.Models
 {
@@ -19,6 +21,7 @@ namespace Hurtownia.Models
 
         public string Name { get; set; }
         public string Key { get; set; }
+
         public string Value { get; set; }
     }
 }

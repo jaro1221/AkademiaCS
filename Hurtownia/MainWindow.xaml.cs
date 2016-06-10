@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.ObjectModel;
-using System.IO;
+﻿using System.ComponentModel;
 using System.Windows;
-using System.Xml.Serialization;
-using Hurtownia.Classes;
 using Hurtownia.Controllers;
 using Hurtownia.Models;
 using Hurtownia.Windows;
@@ -13,12 +9,26 @@ namespace Hurtownia
     /// <summary>
     ///     Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+
+    
+    public partial class MainWindow : Window, INotifyPropertyChanged
     {
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void SetProp(string name)
+        {
+            if (PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs(name));
+        }
+
+
+        public Company Company { get; set; }
         public MainWindow()
         {
             InitializeComponent();
             LoadData();
+            StackPanelCompanyData.DataContext = Company;
 
         }
 
@@ -29,14 +39,15 @@ namespace Hurtownia
             Products.LoadProducts();
             Deliveries.LoadDeliveries();
             SettingsValues.LoadSettings();
-
-            LoadLabelsContent();
+            LoadCompany();
         }
 
-        private void LoadLabelsContent()
+        private void LoadCompany()
         {
-            LabelCompanyName.Content = SettingsValues.GetValue("companyname");
-            LabelCompanyOwner.Content = SettingsValues.GetValue("companyowner");
+            string name = SettingsValues.GetValue("companyname");
+            string owner = SettingsValues.GetValue("companyowner");
+            this.Company = new Company(name, owner);
+
         }
 
         private void SaleButton_Click(object sender, RoutedEventArgs e)

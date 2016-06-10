@@ -55,14 +55,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Base.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\Client.cs" />
+    <Compile Include="Models\Company.cs" />
     <Compile Include="Models\Delivery.cs" />
     <Compile Include="Models\Person.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\SettingValue.cs" />
     <Compile Include="Controllers\Clients.cs" />
-    <Compile Include="Controllers\Company.cs" />
     <Compile Include="Controllers\Deliveries.cs" />
     <Compile Include="Controllers\Products.cs" />
     <Compile Include="Controllers\SettingsValues.cs" />
@@ -181,7 +182,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="bin\Release\Hurtownia.exe.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -192,11 +192,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="bin\Release\Hurtownia.exe" />
-    <Content Include="bin\Release\Hurtownia.pdb" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="bin\Debug\Files\" />
+    <Folder Include="obj\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
