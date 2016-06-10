@@ -53,14 +53,16 @@ namespace Hurtownia.Windows
         private void ListViewDeliveriesList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int index = ListViewDeliveriesList.SelectedIndex;
-            ButtonExecute.IsEnabled = !Deliveries.IsExecutedCheck(index);
-
+            ButtonExecute.IsEnabled = Deliveries.IsExecutedCheck(index);
+            
         }
 
         private void ButtonExecute_Click(object sender, RoutedEventArgs e)
         {
             int index = ListViewDeliveriesList.SelectedIndex;
             Deliveries.ExecuteDelivery(index);
+            
+            
         }
     }
 }

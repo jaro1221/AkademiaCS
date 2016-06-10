@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.IO;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Windows;
 using System.Xml.Serialization;
 using Hurtownia.Classes;
@@ -10,7 +11,13 @@ namespace Hurtownia.Controllers
     public class Deliveries
     {
         public static ObservableCollection<Delivery> DeliveriesList { get; set; } = new ObservableCollection<Delivery>();
-        public static int NumberOfDeliveries { get; set; }
+
+        public static int NumberOfDeliveries
+        {
+            get { return DeliveriesList.Count; }
+            set { }
+        }
+
         public static string FilePath { get; set; } = Environment.CurrentDirectory + "..\\Files\\deliveries.xml";
 
         public static void AddNewDelivery(Delivery newDelivery)
@@ -89,16 +96,17 @@ namespace Hurtownia.Controllers
 
         public static bool IsExecutedCheck(int index)
         {
-            foreach (var item in DeliveriesList)
+            if (index != -1)
             {
-                if (item.IsExecuted == "tak")
+                if (DeliveriesList[index].IsExecuted == "nie")
                 {
                     return true;
                 }
-                else if (item.IsExecuted == "nie")
+                else if (DeliveriesList[index].IsExecuted == "tak")
                 {
                     return false;
                 }
+                return false;
             }
             return false;
         }
