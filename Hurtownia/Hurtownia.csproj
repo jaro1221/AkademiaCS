@@ -60,6 +60,8 @@
     <Compile Include="Models\Client.cs" />
     <Compile Include="Models\Company.cs" />
     <Compile Include="Models\Delivery.cs" />
+    <Compile Include="Models\Invoice.cs" />
+    <Compile Include="Controllers\Invoices.cs" />
     <Compile Include="Models\Person.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\SettingValue.cs" />
@@ -97,8 +99,14 @@
     <Compile Include="Windows\SearchClientWindow.xaml.cs">
       <DependentUpon>SearchClientWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\SelectClientWindow.xaml.cs">
+      <DependentUpon>SelectClientWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\SettingsWindow.xaml.cs">
       <DependentUpon>SettingsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\ShowDeliveryWindow.xaml.cs">
+      <DependentUpon>ShowDeliveryWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\WarehouseWindow.xaml.cs">
       <DependentUpon>WarehouseWindow.xaml</DependentUpon>
@@ -155,7 +163,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Windows\SelectClientWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\SettingsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\ShowDeliveryWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

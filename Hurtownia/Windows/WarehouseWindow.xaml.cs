@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.ObjectModel;
-using System.IO;
 using System.Windows;
 using System.Windows.Controls;
-using System.Xml.Serialization;
-using Hurtownia.Classes;
+using System.Windows.Input;
 using Hurtownia.Controllers;
 
 namespace Hurtownia.Windows
@@ -18,12 +15,12 @@ namespace Hurtownia.Windows
         {
             InitializeComponent();
             ListViewWarehouse.ItemsSource = Products.ProductsList;
-            LabelNumberOfProducts.Content = "Liczba produktów: " + ListViewWarehouse.Items.Count.ToString();
+            LabelNumberOfProducts.Content = "Liczba produktów: " + ListViewWarehouse.Items.Count;
         }
 
         private void ButtonAdd_Click(object sender, RoutedEventArgs e)
         {
-            AddProductWindow addProductWindow = new AddProductWindow();
+            var addProductWindow = new AddProductWindow();
             addProductWindow.Show();
         }
 
@@ -42,30 +39,27 @@ namespace Hurtownia.Windows
             }
         }
 
-      
 
         private void TextBoxSearch_TextChanged(object sender, TextChangedEventArgs e)
         {
-            int length = TextBoxSearch.Text.Length;
-            string query = TextBoxSearch.Text.ToLower();
+            var length = TextBoxSearch.Text.Length;
+            var query = TextBoxSearch.Text.ToLower();
             if (length != 0)
             {
                 ListViewWarehouse.ItemsSource = Products.SearchProduct(query);
-                LabelNumberOfProducts.Content = "Znaleziono: " + ListViewWarehouse.Items.Count.ToString();
-
+                LabelNumberOfProducts.Content = "Znaleziono: " + ListViewWarehouse.Items.Count;
             }
             else if (length == 0)
             {
                 ListViewWarehouse.ItemsSource = Products.ProductsList;
-                LabelNumberOfProducts.Content = "Liczba klientów: " + ListViewWarehouse.Items.Count.ToString();
-
+                LabelNumberOfProducts.Content = "Liczba klientów: " + ListViewWarehouse.Items.Count;
             }
         }
 
-        private void ListViewWarehouse_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void ListViewWarehouse_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            int index = ListViewWarehouse.SelectedIndex;
-            EditProductWindow editProductWindow = new EditProductWindow(index);
+            var index = ListViewWarehouse.SelectedIndex;
+            var editProductWindow = new EditProductWindow(index);
             editProductWindow.Show();
         }
     }

@@ -1,40 +1,29 @@
-﻿<Window x:Class="Hurtownia.Windows.DeliveryWindow"
+﻿<Window x:Class="Hurtownia.Windows.ShowDeliveryWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Hurtownia.Windows"
         mc:Ignorable="d"
-        Title="DeliveryWindow" Height="369.8" Width="457.4">
+        Title="ShowDeliveryWindow" Height="300" Width="452.4">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="25" />
-            <RowDefinition Height="30" />
             <RowDefinition Height="*" />
             <RowDefinition Height="50" />
             <RowDefinition Height="25" />
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal">
+        <StackPanel Name="StackPanelInfos" Orientation="Horizontal">
             <Label Height="20" Padding="0,0,0,0" Content="Data dostawy: " />
-            <DatePicker Name="DateOfDelivery" Height="20" Padding="0,0,0,0" />
+            <Label Name="LabelDate" Height="20" Width="120" Padding="0,0,0,0" Content="{Binding DateAsString}" />
             <Label Height="20" Margin="10,0,0,0" Padding="0,0,0,0" Content="Nazwa dostawcy: " />
-            <TextBox Name="NameDelivery" Height="20" Width="100" Padding="0,0,0,0" />
+            <Label Name="LabelNameDelivery" Height="20" Width="148" Padding="0,0,0,0" Margin="0,2,0,2.8"
+                   Content="{Binding DeliverName}" />
 
         </StackPanel>
 
-        <StackPanel Margin="0,5,0,0" Grid.Row="1" Orientation="Horizontal">
-            <Label Height="20" Padding="0,0,0,0" Content="Produkt: " />
-            <ComboBox Height="20" Name="ComboBoxProducts" IsEditable="True" Width="150" />
-            <Button Height="20" Name="ButtonNewProduct" Content="Nowy" Click="ButtonNewProduct_Click" Margin="0,2,0,0"
-                    VerticalAlignment="Top" />
-            <Label Margin="5,0,0,0" Height="20" Padding="0,0,0,0" Content="Ilość: " />
-            <TextBox Height="20" Name="TextBoxQuantity" Width="40" />
-            <Label Margin="5,0,0,0" Height="20" Padding="0,0,0,0" Content="Cena: " />
-            <TextBox Height="20" Name="TextBoxPrice" Width="40" />
-            <Button Width="50" Name="ButtonAddProduct" Content="Dodaj" Margin="10,2,0,2.8"
-                    Click="ButtonAddProduct_Click" />
-        </StackPanel>
-        <ListView Name="ListViewDeliveryList" Grid.Row="2">
+
+        <ListView Name="ListViewDeliveryList" Grid.Row="1">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Kod" Width="auto" DisplayMemberBinding="{Binding Code}" />
@@ -47,18 +36,19 @@
             </ListView.View>
         </ListView>
 
-        <StackPanel Grid.Row="3" HorizontalAlignment="Right" Orientation="Horizontal" VerticalAlignment="Center"
-                    Margin="0,15.4,60.8,14.6">
+        <StackPanel Name="StackPanelInfos2" Grid.Row="2" HorizontalAlignment="Right" Orientation="Horizontal"
+                    VerticalAlignment="Center" Margin="0,15.4,60.8,14.6">
 
             <Label FontSize="16" Margin="30,0,0,0" Height="20" Padding="0" Content="SUMA:" />
-            <Label Name="LabelCostOfProducts" FontSize="16" Margin="10,0,0,0" Height="20" Padding="0" Content="0,00" />
+            <Label Name="LabelCostOfProducts" FontSize="16" Margin="10,0,0,0" Height="20" Padding="0"
+                   Content="{Binding CostOfProducts}" />
 
         </StackPanel>
 
-        <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Right">
+        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Right">
             <Button Name="ButtonCancel" Content="Anuluj" Click="ButtonCancel_Click" Height="25" Margin="0,0,0,-0.2"
                     VerticalAlignment="Bottom" />
-            <Button Margin="5,0,0,-0.2" Name="ButtonAdd" Content="Dodaj" Click="ButtonAdd_Click"
+            <Button Margin="5,0,0,-0.2" Name="ButtonDelete" Content="Usuń" Click="ButtonDelete_Click"
                     RenderTransformOrigin="0.5,0.504" Height="25" VerticalAlignment="Top" />
 
         </StackPanel>

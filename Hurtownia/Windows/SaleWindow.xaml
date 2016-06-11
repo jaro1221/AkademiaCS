@@ -14,21 +14,38 @@
             <RowDefinition Height="100" />
             <RowDefinition Height="25" />
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0" Orientation="Horizontal">
+        <StackPanel Name="StackPanelInfos1" Grid.Row="0" Orientation="Horizontal">
             <Label Content="Faktura nr: " />
             <TextBox Width="50" Name="TextBoxDocNumber" />
             <Label Margin="5,0,0,0" Content="Data sprzedaży: " />
             <DatePicker Name="DatePickerDate" Width="auto" />
             <Label Margin="5,0,0,0" Content="Klient: " />
-            <Button Content="Wybierz klienta..." MaxWidth="200" Width="auto" />
+            <Button Name="ButtonClients" Content="{Binding ClientIndex}" MaxWidth="200" Width="auto"
+                    Click="ButtonClients_OnClick" />
         </StackPanel>
         <StackPanel Grid.Row="1" Orientation="Horizontal">
             <Label Content="Produkt: " />
-            <ComboBox IsEditable="True" Width="200" />
+            <ComboBox Name="ComboBoxProducts" IsEditable="True" Width="200" />
             <Label Content=" Ilość: " />
-            <TextBox Text="15" Width="50" TextAlignment="Center" />
-            <Button Margin="5,0,0,0" Content="Dodaj" />
+            <TextBox Name="TextBoxQuantity" Text="15" Width="50" TextAlignment="Center" />
+            <Button Name="ButtonAdd" Margin="5,0,0,-0.2" Content="Dodaj" Click="ButtonAdd_Click" />
         </StackPanel>
+
+        <ListView Name="ListViewClients" Grid.Row="2">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Kod" Width="auto" DisplayMemberBinding="{Binding Code}" />
+                    <GridViewColumn Header="Nazwa produktu" Width="auto" DisplayMemberBinding="{Binding Name}" />
+                    <GridViewColumn Header="Ilość" Width="auto" DisplayMemberBinding="{Binding Quantity}" />
+                    <GridViewColumn Header="Jednostka" Width="auto" DisplayMemberBinding="{Binding UnitString}" />
+                    <GridViewColumn Header="Cena" Width="auto" DisplayMemberBinding="{Binding Price}" />
+                    <GridViewColumn Header="Kwota netto" Width="auto" DisplayMemberBinding="{Binding Cost}" />
+                    <GridViewColumn Header="Podatek" Width="auto" DisplayMemberBinding="{Binding TaxString}" />
+                    <GridViewColumn Header="Kwota brutto" Width="auto" DisplayMemberBinding="{Binding Brutto}" />
+                </GridView>
+
+            </ListView.View>
+        </ListView>
 
         <Grid Grid.Row="3">
             <Grid.ColumnDefinitions>
@@ -37,21 +54,24 @@
             </Grid.ColumnDefinitions>
 
             <StackPanel Grid.Column="0" Orientation="Vertical" HorizontalAlignment="Right">
-                <Label HorizontalContentAlignment="Right" FontSize="22" FontWeight="Bold" Content="Suma (brutto): " />
-                <Label HorizontalContentAlignment="Right" Content="Suma (VAT): " />
-                <Label HorizontalContentAlignment="Right" Content="Suma (netto): " />
+                <Label HorizontalContentAlignment="Right" FontSize="18" FontWeight="Bold" Content="Suma (brutto): " />
+                <Label HorizontalContentAlignment="Right" Content="Suma (VAT): " Padding="0,0,0,0" />
+                <Label HorizontalContentAlignment="Right" Content="Suma (netto): " Padding="0,0,0,0" />
+                <Label HorizontalContentAlignment="Right" Content="Zniżka: " Padding="0,0,0,0" />
+
             </StackPanel>
-            <StackPanel Grid.Column="1" Orientation="Vertical">
-                <Label FontSize="22" FontWeight="Bold" Content="0,00" />
-                <Label Content="0,00" />
-                <Label Content="0,00" />
+            <StackPanel Name="StackPanelInfos" Grid.Column="1" Orientation="Vertical">
+                <Label Name="LabelGrossSum" FontSize="18" FontWeight="Bold" Content="{Binding BruttoSum}" />
+                <Label Name="LabelVatSum" Content="{Binding VatSum}" Padding="0,0,0,0" />
+                <Label Name="LabelTotalSum" Content="{Binding NettoSum}" Padding="0,0,0,0" />
+                <Label Name="LabelDiscount" Content="{Binding Discount}" Padding="0,0,0,0" />
             </StackPanel>
         </Grid>
 
 
         <StackPanel Grid.Row="4" HorizontalAlignment="Right" Orientation="Horizontal">
-            <Button Content="Anuluj" />
-            <Button Margin="10,0,0,0" Content="Drukuj" />
+            <Button Name="ButtonCancel" Content="Anuluj" Click="ButtonCancel_OnClick" />
+            <Button Name="ButtonExecute" Margin="10,0,0,0" Content="Wykonaj" Click="ButtonExecute_OnClick" />
         </StackPanel>
 
     </Grid>

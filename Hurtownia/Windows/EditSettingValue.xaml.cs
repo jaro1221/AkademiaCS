@@ -1,6 +1,6 @@
 ﻿using System.Windows;
-using Hurtownia.Models;
 using Hurtownia.Controllers;
+using Hurtownia.Models;
 
 namespace Hurtownia.Windows
 {
@@ -9,8 +9,6 @@ namespace Hurtownia.Windows
     /// </summary>
     public partial class EditSettingValue : Window
     {
-        public SettingValue CurrentSettingValue { get; set; }
-        public int CurrentIndex { get; set; }
         public EditSettingValue(int index)
         {
             InitializeComponent();
@@ -19,7 +17,9 @@ namespace Hurtownia.Windows
             SetLabels();
         }
 
-        
+        public SettingValue CurrentSettingValue { get; set; }
+        public int CurrentIndex { get; set; }
+
 
         private void SetLabels()
         {
@@ -27,8 +27,6 @@ namespace Hurtownia.Windows
             TextBoxValue.Text = CurrentSettingValue.Value;
         }
 
-
-      
 
         private void ButtonOk_Click(object sender, RoutedEventArgs e)
         {

@@ -15,14 +15,18 @@
 
         <StackPanel Grid.Column="0" VerticalAlignment="Bottom">
             <Button Name="ButtonSale" Content="Sprzedaż" Height="40" FontWeight="Bold" FontSize="20"
-                    Click="SaleButton_Click" />
+                    Click="SaleButton_Click" Margin="0,0,0,10" />
+            <Button Name="ButtonInvoices" Content="Faktury" Height="40" FontWeight="Bold" FontSize="20"
+                    Click="ButtonInvoices_Click" />
             <Button Name="ButtonClients" Content="Klienci" Height="40" FontWeight="Bold" FontSize="20"
                     Click="ButtonClients_Click" />
+
             <Button Name="ButtonWarehouse" Content="Magazyn" Height="40" FontWeight="Bold" FontSize="20"
                     Click="ButtonWarehouse_Click" />
             <Button Name="ButtonDelivery" Content="Dostawy" Height="40" FontWeight="Bold" FontSize="20"
                     Click="ButtonDelivery_Click" />
-            <Button Name="ButtonSettings" IsEnabled="False" Content="Ustawienia" Height="40" Margin="0,20,0,0" FontWeight="Bold"
+            <Button Name="ButtonSettings" IsEnabled="False" Content="Ustawienia" Height="40" Margin="0,20,0,0"
+                    FontWeight="Bold"
                     FontSize="20" Click="SettingsButton_Click" />
         </StackPanel>
 
@@ -42,11 +46,13 @@
             </Label>
 
             <StackPanel Name="StackPanelCompanyData" Grid.Row="1" HorizontalAlignment="Right" Orientation="Vertical">
-                <Label Name="LabelCompanyName" HorizontalAlignment="Right" Content="{Binding CompanyName}" Margin="0,20,0,0"
+                <Label Name="LabelCompanyName" HorizontalAlignment="Right" Content="{Binding CompanyName}"
+                       Margin="0,20,0,0"
                        FontSize="20" FontWeight="Bold" Width="auto" Height="auto" />
-                <Label Name="LabelCompanyOwner" HorizontalAlignment="Right" Content="{Binding CompanyOwner}" Margin="0,0,0,0"
+                <Label Name="LabelCompanyOwner" HorizontalAlignment="Right" Content="{Binding CompanyOwner}"
+                       Margin="0,0,0,0"
                        FontSize="15" Width="auto" Height="auto" />
-                <WrapPanel/>
+                <WrapPanel />
 
             </StackPanel>
         </Grid>

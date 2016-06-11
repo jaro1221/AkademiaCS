@@ -1,22 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using Hurtownia.Controllers;
 
 namespace Hurtownia.Windows
 {
     /// <summary>
-    /// Interaction logic for DeliveriesWindow.xaml
+    ///     Interaction logic for DeliveriesWindow.xaml
     /// </summary>
     public partial class DeliveriesWindow : Window
     {
@@ -31,7 +21,7 @@ namespace Hurtownia.Windows
         {
             LabelAll.Content = "Liczba dostaw (ogółem): " + Deliveries.DeliveriesList.Count;
 
-            int unexec = 0;
+            var unexec = 0;
 
             foreach (var item in Deliveries.DeliveriesList)
             {
@@ -46,23 +36,30 @@ namespace Hurtownia.Windows
 
         private void ButtonAdd_Click(object sender, RoutedEventArgs e)
         {
-            DeliveryWindow deliveryWindow = new DeliveryWindow();
+            var deliveryWindow = new DeliveryWindow();
             deliveryWindow.Show();
         }
 
         private void ListViewDeliveriesList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            int index = ListViewDeliveriesList.SelectedIndex;
+            var index = ListViewDeliveriesList.SelectedIndex;
             ButtonExecute.IsEnabled = Deliveries.IsExecutedCheck(index);
-            
         }
 
         private void ButtonExecute_Click(object sender, RoutedEventArgs e)
         {
-            int index = ListViewDeliveriesList.SelectedIndex;
+            var index = ListViewDeliveriesList.SelectedIndex;
             Deliveries.ExecuteDelivery(index);
-            
-            
+        }
+
+        private void ListViewDeliveriesList_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            var index = ListViewDeliveriesList.SelectedIndex;
+            if (index != -1)
+            {
+                var showDeliveryWindow = new ShowDeliveryWindow(index);
+                showDeliveryWindow.Show();
+            }
         }
     }
 }

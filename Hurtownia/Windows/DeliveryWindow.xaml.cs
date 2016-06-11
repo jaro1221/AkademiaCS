@@ -10,9 +10,9 @@ namespace Hurtownia.Windows
     /// </summary>
     public partial class DeliveryWindow : Window
     {
-        public ObservableCollection<Product> ProductsListOfDelivery { get; set; } = new ObservableCollection<Product>();
         //public Product Product { get; set; }
-        private Delivery newDelivery;
+        private readonly Delivery newDelivery;
+
         public DeliveryWindow()
         {
             InitializeComponent();
@@ -21,11 +21,13 @@ namespace Hurtownia.Windows
             ComboBoxProducts.ItemsSource = Products.GetProductsListAsString();
         }
 
+        public ObservableCollection<Product> ProductsListOfDelivery { get; set; } = new ObservableCollection<Product>();
+
         private void ButtonAddProduct_Click(object sender, RoutedEventArgs e)
         {
-            string name = ComboBoxProducts.Text;
+            var name = ComboBoxProducts.Text;
 
-            Product product = Products.GetProduct(name);
+            var product = Products.GetProduct(name);
             product.Price = float.Parse(TextBoxPrice.Text);
             product.Quantity = float.Parse(TextBoxQuantity.Text);
             product.Cost = product.Price*product.Quantity;
@@ -54,17 +56,17 @@ namespace Hurtownia.Windows
             newDelivery.DeliverName = NameDelivery.Text;
             Deliveries.AddNewDelivery(newDelivery);
             MessageBox.Show("Dodano dostawę");
-            this.Close();
+            Close();
         }
 
         private void ButtonCancel_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            Close();
         }
 
         private void ButtonNewProduct_Click(object sender, RoutedEventArgs e)
         {
-            AddProductWindow addProductWindow = new AddProductWindow();
+            var addProductWindow = new AddProductWindow();
             addProductWindow.Show();
         }
     }

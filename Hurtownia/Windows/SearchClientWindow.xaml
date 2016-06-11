@@ -6,7 +6,5 @@
         xmlns:local="clr-namespace:Hurtownia.Windows"
         mc:Ignorable="d"
         Title="SearchClientWindow" Height="300" Width="300">
-    <Grid>
-        
-    </Grid>
+    <Grid />
 </Window>

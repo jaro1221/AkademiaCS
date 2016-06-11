@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Windows;
@@ -15,17 +14,14 @@ namespace Hurtownia.Controllers
         public static int NumberOfProducts
         {
             get { return ProductsList.Count; }
-            set
-            {
-                
-            }
+            set { }
         }
 
         public static string FilePath { get; set; } = Environment.CurrentDirectory + "..\\Files\\products.xml";
 
         public static ObservableCollection<string> GetProductsListAsString()
         {
-            ObservableCollection<string> StringsList = new ObservableCollection<string>();
+            var StringsList = new ObservableCollection<string>();
             foreach (var product in ProductsList)
             {
                 StringsList.Add(product.Name);
@@ -45,29 +41,27 @@ namespace Hurtownia.Controllers
                 if (product.Name == name)
                 {
                     product.Quantity = product.Quantity + quantity;
-
                 }
             }
             SaveProducts();
-           // SetNumberOfProducts();
+            // SetNumberOfProducts();
         }
 
         public static void AddProduct(Product newProduct)
         {
             ProductsList.Add(newProduct);
             SaveProducts();
-           // SetNumberOfProducts();
-
+            // SetNumberOfProducts();
         }
 
         public static void DeleteProduct(int index)
         {
             ProductsList.RemoveAt(index);
             SaveProducts();
-          //  SetNumberOfProducts();
+            //  SetNumberOfProducts();
         }
 
-        private static bool SaveProducts()
+        public static bool SaveProducts()
         {
             try
             {
@@ -94,7 +88,7 @@ namespace Hurtownia.Controllers
                 {
                     var deSerializer = new XmlSerializer(typeof(ObservableCollection<Product>));
                     var tmpCollection =
-                        (ObservableCollection<Product>)deSerializer.Deserialize(sr);
+                        (ObservableCollection<Product>) deSerializer.Deserialize(sr);
                     foreach (var item in tmpCollection)
                     {
                         ProductsList.Add(item);
@@ -116,29 +110,27 @@ namespace Hurtownia.Controllers
         public static ObservableCollection<Product> SearchProduct(string query)
 
         {
-            ObservableCollection<Product> foundProducts = new ObservableCollection<Product>();
+            var foundProducts = new ObservableCollection<Product>();
 
             foreach (var product in ProductsList)
             {
-                string name = product.Name.ToLower();
-                string code = product.Code.ToLower();
-                string ean = product.Ean;
+                var name = product.Name.ToLower();
+                var code = product.Code.ToLower();
+                var ean = product.Ean;
 
                 if (name.Contains(query) || code.Contains(query) || ean.Contains(query))
                 {
                     foundProducts.Add(product);
                 }
-
             }
 
             return foundProducts;
-
         }
 
 
         public static Product GetProduct(int index)
         {
-            Product product = ProductsList[index];
+            var product = ProductsList[index];
             return product;
         }
 
@@ -155,11 +147,10 @@ namespace Hurtownia.Controllers
             {
                 if (product1.Name == product.Name)
                 {
-                    product1.Quantity =+ product.Quantity;
+                    product1.Quantity = +product.Quantity;
                 }
             }
             SaveProducts();
-
         }
 
         public static Product GetProduct(string name)
@@ -168,7 +159,8 @@ namespace Hurtownia.Controllers
             {
                 if (product.Name == name)
                 {
-                    return new Product(name, product.Code, product.Ean, product.Price, product.Quantity, product.EnumUnit);
+                    return new Product(name, product.Code, product.Ean, product.Price, product.Quantity,
+                        product.EnumUnit);
                 }
             }
             return null;

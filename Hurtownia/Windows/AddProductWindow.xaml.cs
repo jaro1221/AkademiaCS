@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.ObjectModel;
-using System.IO;
 using System.Windows;
-using System.Xml.Serialization;
 using Hurtownia.Classes;
 using Hurtownia.Controllers;
 
@@ -31,12 +28,11 @@ namespace Hurtownia.Windows
             var code = TextBoxCode.Text;
             var ean = TextBoxEan.Text;
             var price = float.Parse(TextBoxPrice.Text);
-            var unit = (Product.Unit)Enum.Parse(typeof(Product.Unit), ComboBoxUnit.Text);
+            var unit = (Product.Unit) Enum.Parse(typeof(Product.Unit), ComboBoxUnit.Text);
             var quantity = float.Parse(TextBoxQuantity.Text);
-            Product newProduct = new Product(name, code, ean, price, quantity, unit);
+            var newProduct = new Product(name, code, ean, price, quantity, unit);
             Products.AddProduct(newProduct);
             Close();
         }
-
     }
 }

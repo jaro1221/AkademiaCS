@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.Windows;
 using Hurtownia.Controllers;
 using Hurtownia.Models;
@@ -9,10 +10,16 @@ namespace Hurtownia
     /// <summary>
     ///     Interaction logic for MainWindow.xaml
     /// </summary>
-
-    
     public partial class MainWindow : Window, INotifyPropertyChanged
     {
+        public MainWindow()
+        {
+            InitializeComponent();
+            LoadData();
+            StackPanelCompanyData.DataContext = Company;
+        }
+
+        public Company Company { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -20,16 +27,6 @@ namespace Hurtownia
         {
             if (PropertyChanged != null)
                 PropertyChanged(this, new PropertyChangedEventArgs(name));
-        }
-
-
-        public Company Company { get; set; }
-        public MainWindow()
-        {
-            InitializeComponent();
-            LoadData();
-            StackPanelCompanyData.DataContext = Company;
-
         }
 
 
@@ -44,10 +41,9 @@ namespace Hurtownia
 
         private void LoadCompany()
         {
-            string name = SettingsValues.GetValue("companyname");
-            string owner = SettingsValues.GetValue("companyowner");
-            this.Company = new Company(name, owner);
-
+            var name = SettingsValues.GetValue("companyname");
+            var owner = SettingsValues.GetValue("companyowner");
+            Company = new Company(name, owner);
         }
 
         private void SaleButton_Click(object sender, RoutedEventArgs e)
@@ -103,6 +99,11 @@ namespace Hurtownia
         {
             var deliveriesWindow = new DeliveriesWindow();
             deliveriesWindow.Show();
+        }
+
+        private void ButtonInvoices_Click(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
         }
     }
 }

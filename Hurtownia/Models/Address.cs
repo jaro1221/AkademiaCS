@@ -1,6 +1,4 @@
-﻿using System.Security.Cryptography.X509Certificates;
-
-namespace Hurtownia.Classes
+﻿namespace Hurtownia.Classes
 {
     public class Address
     {
@@ -11,15 +9,13 @@ namespace Hurtownia.Classes
             Street = street;
             Number = number;
             FullAddress = Nation + ", " + City + " ul. " + Street + " " + Number;
-
         }
-
-        public string FullAddress { get; set; }
 
         public Address()
         {
-
         }
+
+        public string FullAddress { get; set; }
 
 
         public string Nation { get; set; }

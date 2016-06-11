@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.ObjectModel;
-using System.IO;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Input;
-using System.Xml.Serialization;
-using Hurtownia.Models;
 using Hurtownia.Controllers;
 
 namespace Hurtownia.Windows
@@ -18,10 +13,7 @@ namespace Hurtownia.Windows
         {
             InitializeComponent();
             ListViewSettings.ItemsSource = SettingsValues.SettingValuesList;
-
         }
-
-       
 
 
         private void ButtonSave_Click(object sender, RoutedEventArgs e)
@@ -34,7 +26,7 @@ namespace Hurtownia.Windows
         private void ListViewSettings_OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             var index = ListViewSettings.SelectedIndex;
-            EditSettingValue editSettingWindow = new EditSettingValue(index);
+            var editSettingWindow = new EditSettingValue(index);
             editSettingWindow.Show();
         }
 
@@ -42,7 +34,5 @@ namespace Hurtownia.Windows
         {
             Close();
         }
-
-       
     }
 }

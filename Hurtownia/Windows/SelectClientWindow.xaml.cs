@@ -1,5 +1,4 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using Hurtownia.Controllers;
@@ -7,11 +6,11 @@ using Hurtownia.Controllers;
 namespace Hurtownia.Windows
 {
     /// <summary>
-    ///     Interaction logic for ClientsWindow.xaml
+    ///     Interaction logic for SelectClientWindow.xaml
     /// </summary>
-    public partial class ClientsWindow : Window
+    public partial class SelectClientWindow : Window
     {
-        public ClientsWindow()
+        public SelectClientWindow()
         {
             InitializeComponent();
             ListViewClients.ItemsSource = Clients.ClientsList;
@@ -22,20 +21,6 @@ namespace Hurtownia.Windows
         {
             var addClientWindow = new AddClientWindow();
             addClientWindow.Show();
-        }
-
-        private void ButtonDelete_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                var index = ListViewClients.SelectedIndex;
-                Clients.DeleteClient(index);
-                MessageBox.Show("Usunięto klienta");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
         }
 
         private void TextBoxSearch_TextChanged(object sender, TextChangedEventArgs e)
@@ -56,9 +41,7 @@ namespace Hurtownia.Windows
 
         private void ListViewClients_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            var index = ListViewClients.SelectedIndex;
-            var editClientWindow = new EditClientWindow(index);
-            editClientWindow.Show();
+            Close();
         }
     }
 }

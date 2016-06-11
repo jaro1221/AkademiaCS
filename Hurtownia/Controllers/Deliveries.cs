@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.IO;
-using System.Runtime.InteropServices.WindowsRuntime;
 using System.Windows;
 using System.Xml.Serialization;
 using Hurtownia.Classes;
@@ -10,7 +9,8 @@ namespace Hurtownia.Controllers
 {
     public class Deliveries
     {
-        public static ObservableCollection<Delivery> DeliveriesList { get; set; } = new ObservableCollection<Delivery>();
+        public static ObservableCollection<Delivery> DeliveriesList { get; set; } = new ObservableCollection<Delivery>()
+            ;
 
         public static int NumberOfDeliveries
         {
@@ -29,7 +29,7 @@ namespace Hurtownia.Controllers
 
         public static void ExecuteDelivery(int index)
         {
-            Delivery delivery = DeliveriesList[index];
+            var delivery = DeliveriesList[index];
 
             foreach (var item in delivery.DeliveryList)
             {
@@ -68,7 +68,7 @@ namespace Hurtownia.Controllers
                 {
                     var deSerializer = new XmlSerializer(typeof(ObservableCollection<Delivery>));
                     var tmpCollection =
-                        (ObservableCollection<Delivery>)deSerializer.Deserialize(sr);
+                        (ObservableCollection<Delivery>) deSerializer.Deserialize(sr);
                     foreach (var item in tmpCollection)
                     {
                         DeliveriesList.Add(item);
@@ -91,7 +91,6 @@ namespace Hurtownia.Controllers
         {
             DeliveriesList.RemoveAt(index);
             DeliveriesList.Insert(index, delivery);
-            
         }
 
         public static bool IsExecutedCheck(int index)
@@ -102,13 +101,25 @@ namespace Hurtownia.Controllers
                 {
                     return true;
                 }
-                else if (DeliveriesList[index].IsExecuted == "tak")
+                if (DeliveriesList[index].IsExecuted == "tak")
                 {
                     return false;
                 }
                 return false;
             }
             return false;
+        }
+
+        public static Delivery GetDelivery(int index)
+        {
+            var delivery = DeliveriesList[index];
+            return delivery;
+        }
+
+        public static void DeleteDelivery(int index)
+        {
+            DeliveriesList.RemoveAt(index);
+            SaveDeliveries();
         }
     }
 }

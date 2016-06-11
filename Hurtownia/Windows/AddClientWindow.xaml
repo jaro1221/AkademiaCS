@@ -53,7 +53,8 @@
 
         <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center">
             <Button Name="ButtonCancel" Content="Anuluj" Click="ButtonCancel_Click" />
-            <Button Margin="5,0,0,-0.2" Name="ButtonAdd" Content="Dodaj klienta" Click="ButtonAdd_Click" Height="25" VerticalAlignment="Top" />
+            <Button Margin="5,0,0,-0.2" Name="ButtonAdd" Content="Dodaj klienta" Click="ButtonAdd_Click" Height="25"
+                    VerticalAlignment="Top" />
 
         </StackPanel>
 

@@ -2,7 +2,6 @@
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Windows;
-using System.Xml.Serialization;
 using Hurtownia.Models;
 
 namespace Hurtownia.Controllers
@@ -33,22 +32,21 @@ namespace Hurtownia.Controllers
                 {
                     while (!sr.EndOfStream)
                     {
-                        string data = sr.ReadLine();
-                        string[] newSetting = data.Split('=');
+                        var data = sr.ReadLine();
+                        var newSetting = data.Split('=');
                         AddSettings(newSetting);
                     }
                 }
             }
             catch (Exception ex)
             {
-                
                 MessageBox.Show(ex.Message);
             }
         }
 
         private static void AddSettings(string[] newSetting)
         {
-            SettingValue newSettingValue = new SettingValue(newSetting[0], newSetting[1], newSetting[2]);
+            var newSettingValue = new SettingValue(newSetting[0], newSetting[1], newSetting[2]);
             SettingValuesList.Add(newSettingValue);
         }
 
@@ -58,12 +56,11 @@ namespace Hurtownia.Controllers
             {
                 if (item.Name == name)
                 {
-                    string value = item.Value;
+                    var value = item.Value;
                     return value;
                 }
             }
             return null;
-
         }
 
         public static void EditSettingsValue(int index, SettingValue settingValue)

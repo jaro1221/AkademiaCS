@@ -1,8 +1,4 @@
-﻿using System.Collections.Specialized;
-using Hurtownia;
-using Hurtownia.Controllers;
-
-namespace Hurtownia.Models
+﻿namespace Hurtownia.Models
 {
     public class SettingValue
     {
@@ -12,7 +8,6 @@ namespace Hurtownia.Models
 
         public SettingValue(string name, string key, string value)
         {
-            
             Name = name;
             Key = key;
             Value = value;

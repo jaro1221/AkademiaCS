@@ -3,7 +3,6 @@ using System.Collections.ObjectModel;
 using System.IO;
 using System.Windows;
 using System.Xml.Serialization;
-using Hurtownia.Classes;
 
 namespace Hurtownia.Controllers
 {
@@ -82,28 +81,26 @@ namespace Hurtownia.Controllers
 
         public static ObservableCollection<Client> SearchClient(string query)
         {
-            ObservableCollection<Client> FoundClients = new ObservableCollection<Client>();
+            var FoundClients = new ObservableCollection<Client>();
 
             foreach (var client in ClientsList)
             {
-                string fName = client.FirstName.ToLower();
-                string lName = client.LastName.ToLower();
-                string Nip = client.Nip;
+                var fName = client.FirstName.ToLower();
+                var lName = client.LastName.ToLower();
+                var Nip = client.Nip;
 
                 if (fName.Contains(query) || lName.Contains(query) || Nip.Contains(query))
                 {
                     FoundClients.Add(client);
                 }
-
             }
 
             return FoundClients;
-
         }
 
         public static Client GetClient(int index)
         {
-            Client client = ClientsList[index];
+            var client = ClientsList[index];
             return client;
         }
 
