@@ -20,8 +20,8 @@
             <Label Margin="5,0,0,0" Content="Data sprzedaży: " />
             <DatePicker Name="DatePickerDate" Width="auto" />
             <Label Margin="5,0,0,0" Content="Klient: " />
-            <Button Name="ButtonClients" Content="{Binding ClientIndex}" MaxWidth="200" Width="auto"
-                    Click="ButtonClients_OnClick" />
+            <ComboBox Name="ComboBoxClients" IsEditable="True" Width="133" Margin="0,0,0,-0.2" SelectionChanged="ComboBoxClients_SelectionChanged" />
+
         </StackPanel>
         <StackPanel Grid.Row="1" Orientation="Horizontal">
             <Label Content="Produkt: " />

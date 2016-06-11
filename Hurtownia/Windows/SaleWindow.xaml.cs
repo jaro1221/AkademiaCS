@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.Windows;
 using Hurtownia.Controllers;
 using Hurtownia.Models;
@@ -10,32 +11,21 @@ namespace Hurtownia.Windows
     /// </summary>
     public partial class SaleWindow : Window, INotifyPropertyChanged
     {
-        private readonly Invoice newInvoice = new Invoice();
-        public int _clientIndex;
+        private Invoice newInvoice = new Invoice();
+        public Client Client { get; set; }
 
 
         public SaleWindow()
         {
             InitializeComponent();
             ComboBoxProducts.ItemsSource = Products.GetProductsListAsString();
+            ComboBoxClients.ItemsSource = Clients.GetClientsListAsString();
+
             StackPanelInfos1.DataContext = this;
             StackPanelInfos.DataContext = newInvoice;
             ListViewClients.ItemsSource = newInvoice.ProductsList;
         }
 
-        public int ClientIndex
-        {
-            get { return _clientIndex; }
-            set
-            {
-                if (_clientIndex != value)
-
-                {
-                    _clientIndex = value;
-                    OnPropertyChanged("ClientIndex");
-                }
-            }
-        }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -47,11 +37,7 @@ namespace Hurtownia.Windows
             }
         }
 
-        private void ButtonClients_OnClick(object sender, RoutedEventArgs e)
-        {
-            var selectClientWindow = new SelectClientWindow();
-            selectClientWindow.Show();
-        }
+       
 
         private void ButtonAdd_Click(object sender, RoutedEventArgs e)
         {
@@ -65,7 +51,7 @@ namespace Hurtownia.Windows
             //Product.Price = float.Parse(TextBoxPrice.Text);
             //Product.Quantity = float.Parse(TextBoxQuantity.Text);
             //Product.Cost = Product.Price*Product.Quantity;
-
+            
             newInvoice.AddProduct(product);
             ResetFields();
             UpdateLabels();
@@ -94,9 +80,16 @@ namespace Hurtownia.Windows
 
         private void ButtonExecute_OnClick(object sender, RoutedEventArgs e)
         {
+            newInvoice.DateTime = DatePickerDate.DisplayDate;
             newInvoice.Number = TextBoxDocNumber.Text;
             Invoices.AddInvoice(newInvoice);
             Invoices.ExecuteInvoice(newInvoice.Number);
+        }
+
+        private void ComboBoxClients_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            newInvoice.Client = Clients.GetClient(ComboBoxClients.SelectedIndex);
+            LabelDiscount.Content = newInvoice.Client.Discount.ToString() + "%";
         }
     }
 }

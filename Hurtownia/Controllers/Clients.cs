@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.IO;
 using System.Windows;
 using System.Xml.Serialization;
@@ -8,7 +10,6 @@ namespace Hurtownia.Controllers
 {
     public class Clients
     {
-        //
         public static ObservableCollection<Client> ClientsList { get; set; } = new ObservableCollection<Client>();
         public static int NumberOfClients { get; set; }
         public static string FilePath { get; set; } = Environment.CurrentDirectory + "..\\Files\\clients.xml";
@@ -104,11 +105,22 @@ namespace Hurtownia.Controllers
             return client;
         }
 
+
         public static void EditClient(Client editedClient, int index)
         {
             ClientsList.RemoveAt(index);
             ClientsList.Insert(index, editedClient);
             SaveClients();
+        }
+
+        public static ObservableCollection<string> GetClientsListAsString()
+        {
+            var StringsList = new ObservableCollection<string>();
+            foreach (var product in ClientsList)
+            {
+                StringsList.Add(product.LastName + " " + product.FirstName + "(" + product.Nip + ")");
+            }
+            return StringsList;
         }
     }
 }

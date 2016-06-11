@@ -1,0 +1,41 @@
+﻿<Window x:Class="Hurtownia.Windows.InvoicesWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Hurtownia.Windows"
+        mc:Ignorable="d"
+        Title="InvoicesWindow" Height="300" Width="497.4">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="25" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="0">
+            <Label Name="LabelAll" Content="Liczba faktur: " />
+        </StackPanel>
+
+        <ListView Name="ListViewInvoicesList" Grid.Row="1" MouseDoubleClick="ListViewInvoicesList_MouseDoubleClick" SelectionChanged="ListViewInvoicesList_OnSelectionChanged">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Nazwa" Width="auto" DisplayMemberBinding="{Binding Number}" />
+                    <GridViewColumn Header="Data" Width="auto" DisplayMemberBinding="{Binding DateTime}" />
+                    <GridViewColumn Header="Klient" Width="auto" DisplayMemberBinding="{Binding ClientString}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Margin="5,0,0,-0.2" Name="ButtonCancel" Content="Anuluj" Height="25" VerticalAlignment="Top"
+                     Click="ButtonCancel_OnClick" />
+            <Button Margin="5,0,0,-0.2" Name="ButtonDelete" Content="Usuń" Height="25" VerticalAlignment="Top"
+                    Click="ButtonDelete_OnClick" IsEnabled="False" />
+
+        </StackPanel>
+
+
+    </Grid>
+</Window>

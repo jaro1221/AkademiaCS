@@ -9,6 +9,15 @@ namespace Hurtownia.Models
     {
         public string Number { get; set; }
         public Client Client { get; set; }
+
+        public string ClientString
+        {
+            get { return Client.LastName.ToString() + " " + Client.FirstName.ToString(); }
+/*
+            private set {  }
+*/
+        }
+
         public ObservableCollection<Product> ProductsList { get; set; } = new ObservableCollection<Product>();
 
         public float BruttoSum
@@ -20,7 +29,7 @@ namespace Hurtownia.Models
                 {
                     sum = sum + product.Brutto;
                 }
-                return sum;
+                return sum*(1-(Client.Discount/100));
             }
             set { }
         }

@@ -55,7 +55,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Base.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\Client.cs" />
     <Compile Include="Models\Company.cs" />
@@ -64,11 +63,9 @@
     <Compile Include="Controllers\Invoices.cs" />
     <Compile Include="Models\Person.cs" />
     <Compile Include="Models\Product.cs" />
-    <Compile Include="Models\SettingValue.cs" />
     <Compile Include="Controllers\Clients.cs" />
     <Compile Include="Controllers\Deliveries.cs" />
     <Compile Include="Controllers\Products.cs" />
-    <Compile Include="Controllers\SettingsValues.cs" />
     <Compile Include="Windows\AddClientWindow.xaml.cs">
       <DependentUpon>AddClientWindow.xaml</DependentUpon>
     </Compile>
@@ -90,8 +87,8 @@
     <Compile Include="Windows\EditProductWindow.xaml.cs">
       <DependentUpon>EditProductWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\EditSettingValue.xaml.cs">
-      <DependentUpon>EditSettingValue.xaml</DependentUpon>
+    <Compile Include="Windows\InvoicesWindow.xaml.cs">
+      <DependentUpon>InvoicesWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\SaleWindow.xaml.cs">
       <DependentUpon>SaleWindow.xaml</DependentUpon>
@@ -99,14 +96,11 @@
     <Compile Include="Windows\SearchClientWindow.xaml.cs">
       <DependentUpon>SearchClientWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\SelectClientWindow.xaml.cs">
-      <DependentUpon>SelectClientWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Windows\SettingsWindow.xaml.cs">
-      <DependentUpon>SettingsWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Windows\ShowDeliveryWindow.xaml.cs">
       <DependentUpon>ShowDeliveryWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\ShowInvoiceWindow.xaml.cs">
+      <DependentUpon>ShowInvoiceWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\WarehouseWindow.xaml.cs">
       <DependentUpon>WarehouseWindow.xaml</DependentUpon>
@@ -151,7 +145,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\EditSettingValue.xaml">
+    <Page Include="Windows\InvoicesWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -163,15 +157,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\SelectClientWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Windows\SettingsWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Windows\ShowDeliveryWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\ShowInvoiceWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -198,6 +188,8 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="bin\Debug\Files\company.conf" />
+    <None Include="bin\Debug\Files\settings.conf" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -209,6 +201,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="obj\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="bin\Debug\Files\clients.xml" />
+    <Resource Include="bin\Debug\Files\deliveries.xml" />
+    <Resource Include="bin\Debug\Files\products.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

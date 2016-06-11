@@ -16,10 +16,8 @@ namespace Hurtownia
         {
             InitializeComponent();
             LoadData();
-            StackPanelCompanyData.DataContext = Company;
+            StackPanelCompanyData.DataContext = typeof(Company);
         }
-
-        public Company Company { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -35,16 +33,18 @@ namespace Hurtownia
             Clients.LoadClients();
             Products.LoadProducts();
             Deliveries.LoadDeliveries();
-            SettingsValues.LoadSettings();
+            Invoices.LoadInvoices();
+           // SettingsValues.LoadSettings();
             LoadCompany();
         }
 
         private void LoadCompany()
         {
-            var name = SettingsValues.GetValue("companyname");
-            var owner = SettingsValues.GetValue("companyowner");
-            Company = new Company(name, owner);
+            Company.LoadCompany();
+            LabelCompanyName.Content = Company.CompanyName;
+            LabelCompanyOwner.Content = Company.CompanyOwner;
         }
+
 
         private void SaleButton_Click(object sender, RoutedEventArgs e)
         {
@@ -57,16 +57,7 @@ namespace Hurtownia
             saleWindow.Show();
         }
 
-        private void SettingsButton_Click(object sender, RoutedEventArgs e)
-        {
-            OpenSettingsWindow();
-        }
-
-        private static void OpenSettingsWindow()
-        {
-            var settingsWindow = new SettingsWindow();
-            settingsWindow.Show();
-        }
+        
 
         private void ButtonClients_Click(object sender, RoutedEventArgs e)
         {
@@ -103,7 +94,13 @@ namespace Hurtownia
 
         private void ButtonInvoices_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            OpenInvoicesWindow();
+        }
+
+        private void OpenInvoicesWindow()
+        {
+            InvoicesWindow invoicesWindow = new InvoicesWindow();
+            invoicesWindow.Show();
         }
     }
 }

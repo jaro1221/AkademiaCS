@@ -1,4 +1,9 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
+using System.IO;
+using System.Windows;
+using System.Xml.Serialization;
+using Hurtownia.Classes;
 using Hurtownia.Controllers;
 
 namespace Hurtownia.Models
@@ -6,6 +11,7 @@ namespace Hurtownia.Models
     public static class Invoices
     {
         public static ObservableCollection<Invoice> InvoicesList { get; set; } = new ObservableCollection<Invoice>();
+        public static string FilePath { get; set; } = Environment.CurrentDirectory + "..\\Files\\invoices.xml";
 
         public static int NumberOfInvoices
         {
@@ -18,6 +24,7 @@ namespace Hurtownia.Models
         {
             InvoicesList.Add(newInvoice);
             NumberOfInvoices = InvoicesList.Count;
+            SaveInvoices();
         }
 
         public static void ExecuteInvoice(string number)
@@ -46,5 +53,59 @@ namespace Hurtownia.Models
 
             Products.SaveProducts();
         }
+
+        public static void DeleteIncoice(int index)
+        {
+            InvoicesList.RemoveAt(index);
+            NumberOfInvoices = InvoicesList.Count;
+            SaveInvoices();
+        }
+
+        public static bool LoadInvoices()
+        {
+            try
+            {
+                InvoicesList.Clear();
+                using (var sr = new StreamReader(FilePath))
+                {
+                    var deSerializer = new XmlSerializer(typeof(ObservableCollection<Invoice>));
+                    var tmpCollection =
+                        (ObservableCollection<Invoice>)deSerializer.Deserialize(sr);
+                    foreach (var item in tmpCollection)
+                    {
+                        InvoicesList.Add(item);
+                    }
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                if (ex is FileNotFoundException)
+                {
+                    var sw = new StreamWriter(FilePath);
+                }
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+        }
+
+        public static bool SaveInvoices()
+        {
+            try
+            {
+                using (var sw = new StreamWriter(FilePath))
+                {
+                    var serializer = new XmlSerializer(typeof(ObservableCollection<Invoice>));
+                    serializer.Serialize(sw, InvoicesList);
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+        }
+
     }
 }
