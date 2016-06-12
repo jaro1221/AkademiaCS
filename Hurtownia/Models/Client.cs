@@ -16,7 +16,7 @@ namespace Hurtownia.Controllers
         }
 
         public Client(string nation, string city, string street, string number, string firstName, string lastName,
-            DateTime dateOfBirth, string nip, int phone, float discount)
+            DateTime dateOfBirth, string nip, int phone, double discount)
             : base(nation, city, street, number, firstName, lastName, dateOfBirth)
         {
             Nip = nip;
@@ -30,6 +30,6 @@ namespace Hurtownia.Controllers
 
         public string Nip { get; set; }
         public int Phone { get; set; }
-        public float Discount { get; set; }
+        public double Discount { get; set; }
     }
 }

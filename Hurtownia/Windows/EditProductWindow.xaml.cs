@@ -42,8 +42,8 @@ namespace Hurtownia.Windows
                 var name = TextBoxName.Text;
                 var code = TextBoxCode.Text;
                 var ean = TextBoxEan.Text;
-                float quantity = int.Parse(TextBoxQuantity.Text);
-                var price = float.Parse(TextBoxPrice.Text);
+                double quantity = int.Parse(TextBoxQuantity.Text);
+                var price = double.Parse(TextBoxPrice.Text);
                 var unit = (Product.Unit) Enum.Parse(typeof(Product.Unit), ComboBoxUnit.Text);
 
                 Products.EditProduct(new Product(name, code, ean, price, quantity, unit), Index);

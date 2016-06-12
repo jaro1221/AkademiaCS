@@ -1,4 +1,5 @@
-﻿using Hurtownia.Models;
+﻿using System;
+using Hurtownia.Models;
 
 namespace Hurtownia.Classes
 {
@@ -10,13 +11,13 @@ namespace Hurtownia.Classes
             szt
         }
 
-        public float Tax = 23;
+        public double Tax = 23;
 
         public Product()
         {
         }
 
-        public Product(string name, string code, string ean, float price, float quantity, Unit enumUnit)
+        public Product(string name, string code, string ean, double price, double quantity, Unit enumUnit)
         {
             Name = name;
             Code = code;
@@ -32,8 +33,8 @@ namespace Hurtownia.Classes
         public string Name { get; set; }
         public string Code { get; set; }
         public string Ean { get; set; }
-        public float Price { get; set; }
-        public float Quantity { get; set; }
+        public double Price { get; set; }
+        public double Quantity { get; set; }
 
         public string TaxString
         {
@@ -45,13 +46,13 @@ namespace Hurtownia.Classes
             set { }
         }
 
-        public float Brutto
+        public double Brutto
         {
-            get { return Cost + Cost*Tax/100; }
+            get { return Math.Round(Cost + Cost*Tax/100, 2); }
             set { }
         }
 
-        public float Cost
+        public double Cost
         {
             get { return Price*Quantity; }
             set { }

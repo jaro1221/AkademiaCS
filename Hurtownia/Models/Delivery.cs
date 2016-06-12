@@ -18,7 +18,7 @@ namespace Hurtownia.Classes
 
         public string DeliverName { get; set; }
 
-        public float CostOfProducts { get; set; }
+        public double CostOfProducts { get; set; }
 
         public string IsExecuted { get; set; } = "nie";
 

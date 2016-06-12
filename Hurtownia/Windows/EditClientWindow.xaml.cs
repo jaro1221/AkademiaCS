@@ -44,7 +44,7 @@ namespace Hurtownia.Windows
                 var dateOfBirth = DatePickerDateOfBirth.DisplayDate.Date;
                 var nip = TextBoxNip.Text;
                 var phone = int.Parse(TextBoxPhone.Text);
-                var discount = float.Parse(TextBoxDiscount.Text);
+                var discount = double.Parse(TextBoxDiscount.Text);
                 var nation = TextBoxNation.Text;
                 var city = TextBoxCity.Text;
                 var street = TextBoxStreet.Text;

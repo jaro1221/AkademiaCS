@@ -34,7 +34,7 @@ namespace Hurtownia.Controllers
         //    NumberOfProducts = ProductsList.Count;
         //}
 
-        internal static void AddProduct(string name, float quantity)
+        internal static void AddProduct(string name, double quantity)
         {
             foreach (var product in ProductsList)
             {

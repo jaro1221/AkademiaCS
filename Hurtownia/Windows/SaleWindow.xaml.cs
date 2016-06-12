@@ -51,7 +51,7 @@ namespace Hurtownia.Windows
             var name = ComboBoxProducts.Text;
 
             var product = Products.GetProduct(name);
-            product.Quantity = float.Parse(TextBoxQuantity.Text);
+            product.Quantity = double.Parse(TextBoxQuantity.Text);
             Product product2 = Products.GetProduct(name);
             if (product.Quantity <= product2.Quantity)
             {
@@ -60,8 +60,8 @@ namespace Hurtownia.Windows
                     product.Cost = product.Price * product.Quantity;
 
                     ////Product = Products.GetProduct(name);
-                    //Product.Price = float.Parse(TextBoxPrice.Text);
-                    //Product.Quantity = float.Parse(TextBoxQuantity.Text);
+                    //Product.Price = double.Parse(TextBoxPrice.Text);
+                    //Product.Quantity = double.Parse(TextBoxQuantity.Text);
                     //Product.Cost = Product.Price*Product.Quantity;
 
                     newInvoice.AddProduct(product);

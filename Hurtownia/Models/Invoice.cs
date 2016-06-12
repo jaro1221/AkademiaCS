@@ -20,11 +20,11 @@ namespace Hurtownia.Models
 
         public ObservableCollection<Product> ProductsList { get; set; } = new ObservableCollection<Product>();
 
-        public float BruttoSum
+        public double BruttoSum
         {
             get
             {
-                float sum = 0;
+                double sum = 0;
                 foreach (var product in ProductsList)
                 {
                     sum = sum + product.Brutto;
@@ -34,11 +34,11 @@ namespace Hurtownia.Models
             set { }
         }
 
-        public float VatSum
+        public double VatSum
         {
             get
             {
-                float sum = 0;
+                double sum = 0;
                 foreach (var product in ProductsList)
                 {
                     sum = sum + product.Cost*product.Tax/100;
@@ -48,11 +48,11 @@ namespace Hurtownia.Models
             set { }
         }
 
-        public float NettoSum
+        public double NettoSum
         {
             get
             {
-                float sum = 0;
+                double sum = 0;
                 foreach (var product in ProductsList)
                 {
                     sum = sum + product.Cost;
