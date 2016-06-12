@@ -35,7 +35,6 @@ namespace Hurtownia.Windows
                 {
                     Products.DeleteProduct(index);
                     MessageBox.Show("Usunięto produkt.", "Sukces!");
-
                 }
             }
             catch (Exception ex)
@@ -70,7 +69,7 @@ namespace Hurtownia.Windows
 
         private void ListViewWarehouse_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            int index = ListViewWarehouse.SelectedIndex;
+            var index = ListViewWarehouse.SelectedIndex;
             if (index == -1)
                 ButtonDelete.IsEnabled = false;
             else

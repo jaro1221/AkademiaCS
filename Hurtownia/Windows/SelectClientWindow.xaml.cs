@@ -1,32 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using Hurtownia.Controllers;
 
 namespace Hurtownia.Windows
 {
     /// <summary>
-    /// Interaction logic for SelectClientWindow.xaml
+    ///     Interaction logic for SelectClientWindow.xaml
     /// </summary>
     public partial class SelectClientWindow : Window
     {
-        public int Index { get; set; }
         public SelectClientWindow()
         {
             InitializeComponent();
             ListViewClients.ItemsSource = Clients.ClientsList;
             LabelNumberOfClients.Content = "Liczba klientów: " + ListViewClients.Items.Count;
         }
+
+        public int Index { get; set; }
 
         private void ButtonAdd_Click(object sender, RoutedEventArgs e)
         {
@@ -54,7 +45,7 @@ namespace Hurtownia.Windows
 
         private void ListViewClients_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            this.Index = ListViewClients.SelectedIndex;
+            Index = ListViewClients.SelectedIndex;
             Close();
         }
     }

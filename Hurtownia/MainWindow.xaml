@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Hurtownia"
         xmlns:controllers="clr-namespace:Hurtownia.Controllers"
         mc:Ignorable="d"
-        Title="HurtManager 0.1" Height="350" Width="525">
+        Title="HurtManager 0.1.1" Height="350" Width="525">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="150" />
@@ -34,7 +34,7 @@
             </Grid.RowDefinitions>
 
             <Label x:Name="LabelAppName" Grid.Row="0" FontFamily="Calibri" VerticalAlignment="Top" Height="50"
-        		FontSize="30" HorizontalAlignment="Right" FontWeight="Heavy" Content="HurtManager 0.1"/>
+                   FontSize="30" HorizontalAlignment="Right" FontWeight="Heavy" Content="HurtManager 0.1.1" />
             <Label Grid.Row="0" FontFamily="Calibri" VerticalAlignment="Bottom" Height="40" FontSize="20"
                    HorizontalAlignment="Right" FontWeight="Medium">
                 by imn1oy

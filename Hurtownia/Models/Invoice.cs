@@ -12,10 +12,7 @@ namespace Hurtownia.Models
 
         public string ClientString
         {
-            get { return Client.LastName.ToString() + " " + Client.FirstName.ToString(); }
-/*
-            private set {  }
-*/
+            get { return Client.LastName + " " + Client.FirstName; }
         }
 
         public ObservableCollection<Product> ProductsList { get; set; } = new ObservableCollection<Product>();
@@ -29,7 +26,7 @@ namespace Hurtownia.Models
                 {
                     sum = sum + product.Brutto;
                 }
-                return Math.Round(sum*(1-(Client.Discount/100)), 2);
+                return Math.Round(sum*(1 - Client.Discount/100), 2);
             }
             set { }
         }
@@ -62,8 +59,10 @@ namespace Hurtownia.Models
             set { }
         }
 
-        public string DateString {
-            get { return this.DateTime.ToShortDateString(); } }
+        public string DateString
+        {
+            get { return DateTime.ToShortDateString(); }
+        }
 
         public DateTime DateTime { get; set; }
 

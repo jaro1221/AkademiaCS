@@ -10,7 +10,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="25" />
             <RowDefinition Height="*" />
-            <RowDefinition Height="25"/>
+            <RowDefinition Height="25" />
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal">
             <Button Name="ButtonAdd" Content="Dodaj klienta" Margin="0,0,5,0" Click="ButtonAdd_Click" />
@@ -19,7 +19,8 @@
                      TextChanged="TextBoxSearch_TextChanged" />
             <Label Name="LabelNumberOfClients" Content="Liczba klientów: " />
         </StackPanel>
-        <ListView Name="ListViewClients" Grid.Row="1" MouseDoubleClick="ListViewClients_MouseDoubleClick" SelectionChanged="ListViewClients_SelectionChanged">
+        <ListView Name="ListViewClients" Grid.Row="1" MouseDoubleClick="ListViewClients_MouseDoubleClick"
+                  SelectionChanged="ListViewClients_SelectionChanged">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Nazwisko" Width="100" DisplayMemberBinding="{Binding LastName}" />

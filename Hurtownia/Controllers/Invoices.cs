@@ -3,7 +3,6 @@ using System.Collections.ObjectModel;
 using System.IO;
 using System.Windows;
 using System.Xml.Serialization;
-using Hurtownia.Classes;
 using Hurtownia.Controllers;
 
 namespace Hurtownia.Models
@@ -70,7 +69,7 @@ namespace Hurtownia.Models
                 {
                     var deSerializer = new XmlSerializer(typeof(ObservableCollection<Invoice>));
                     var tmpCollection =
-                        (ObservableCollection<Invoice>)deSerializer.Deserialize(sr);
+                        (ObservableCollection<Invoice>) deSerializer.Deserialize(sr);
                     foreach (var item in tmpCollection)
                     {
                         InvoicesList.Add(item);
@@ -113,7 +112,6 @@ namespace Hurtownia.Models
             {
                 if (invoice.Number == number)
                     return invoice;
-
             }
             return null;
         }

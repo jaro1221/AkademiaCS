@@ -29,10 +29,6 @@ namespace Hurtownia.Controllers
             return StringsList;
         }
 
-        //private static void SetNumberOfProducts()
-        //{
-        //    NumberOfProducts = ProductsList.Count;
-        //}
 
         internal static void AddProduct(string name, double quantity)
         {
@@ -44,21 +40,18 @@ namespace Hurtownia.Controllers
                 }
             }
             SaveProducts();
-            // SetNumberOfProducts();
         }
 
         public static void AddProduct(Product newProduct)
         {
             ProductsList.Add(newProduct);
             SaveProducts();
-            // SetNumberOfProducts();
         }
 
         public static void DeleteProduct(int index)
         {
             ProductsList.RemoveAt(index);
             SaveProducts();
-            //  SetNumberOfProducts();
         }
 
         public static bool SaveProducts()

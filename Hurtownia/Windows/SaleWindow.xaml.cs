@@ -2,7 +2,6 @@
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
-using Hurtownia.Classes;
 using Hurtownia.Controllers;
 using Hurtownia.Models;
 
@@ -13,23 +12,22 @@ namespace Hurtownia.Windows
     /// </summary>
     public partial class SaleWindow : Window, INotifyPropertyChanged
     {
-        private Invoice newInvoice = new Invoice();
-        public Client Client { get; set; }
-        public string CurrProduct { get; set; }
+        private readonly Invoice newInvoice = new Invoice();
 
 
         public SaleWindow()
         {
             InitializeComponent();
-            TextBoxDocNumber.Text = DateTime.Now.Date.Year.ToString() + "/" + DateTime.Now.Date.Month.ToString() + "/" +
-                                    DateTime.Now.Date.Day + "/" + (Invoices.InvoicesList.Count + 1).ToString();
-            //ComboBoxProducts.ItemsSource = Products.GetProductsListAsString();
-            //ComboBoxClients.ItemsSource = Clients.GetClientsListAsString();
+            TextBoxDocNumber.Text = DateTime.Now.Date.Year + "/" + DateTime.Now.Date.Month + "/" +
+                                    DateTime.Now.Date.Day + "/" + (Invoices.InvoicesList.Count + 1);
 
             StackPanelInfos1.DataContext = this;
             StackPanelInfos.DataContext = newInvoice;
             ListViewClients.ItemsSource = newInvoice.ProductsList;
         }
+
+        public Client Client { get; set; }
+        public string CurrProduct { get; set; }
 
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -43,44 +41,27 @@ namespace Hurtownia.Windows
         }
 
 
-
         private void ButtonAdd_Click(object sender, RoutedEventArgs e)
         {
-
-
-
-            var name = this.CurrProduct;
+            var name = CurrProduct;
 
             var product = Products.GetProduct(name);
             product.Quantity = double.Parse(TextBoxQuantity.Text);
-            Product product2 = Products.GetProduct(name);
+            var product2 = Products.GetProduct(name);
             if (product.Quantity <= product2.Quantity)
             {
-               // try
-               // {
-                    product.Cost = product.Price * product.Quantity;
+                product.Cost = product.Price*product.Quantity;
 
-                    ////Product = Products.GetProduct(name);
-                    //Product.Price = double.Parse(TextBoxPrice.Text);
-                    //Product.Quantity = double.Parse(TextBoxQuantity.Text);
-                    //Product.Cost = Product.Price*Product.Quantity;
 
-                    newInvoice.AddProduct(product);
-                    ResetFields();
-                    UpdateLabels();
-              //  }
-              //  catch (Exception exception)
-              //  {
-             //       MessageBox.Show("Sprawdź poprawność wprowadzonych danych.\nSzczegóły: " + exception.Message, "Błąd!");
-              //  }
+                newInvoice.AddProduct(product);
+                ResetFields();
+                UpdateLabels();
             }
             else
             {
                 MessageBox.Show("Brak wystarczającej ilości produktu na magazynie!", "Błąd");
             }
-
         }
-
 
 
         private void UpdateLabels()
@@ -117,7 +98,7 @@ namespace Hurtownia.Windows
                     Invoices.ExecuteInvoice(newInvoice.Number);
                     MessageBox.Show("Dziękujemy za zakupy! Zapraszamy ponownie!", "Sukces!");
                     Close();
-                    ShowInvoiceWindow showInvoiceWindow = new ShowInvoiceWindow(newInvoice.Number);
+                    var showInvoiceWindow = new ShowInvoiceWindow(newInvoice.Number);
                     showInvoiceWindow.Show();
                 }
             }
@@ -133,22 +114,20 @@ namespace Hurtownia.Windows
         //    LabelDiscount.Content = newInvoice.Client.Discount.ToString() + "%";
         //}
 
-        
 
         private void ButtonDelete_Click(object sender, RoutedEventArgs e)
         {
-            int index = ListViewClients.SelectedIndex;
+            var index = ListViewClients.SelectedIndex;
             if (index != -1)
             {
                 newInvoice.DeleteProduct(index);
                 UpdateLabels();
             }
-            
         }
 
         private void ListViewClients_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            int index = ListViewClients.SelectedIndex;
+            var index = ListViewClients.SelectedIndex;
             if (index == -1)
                 ButtonDelete.IsEnabled = false;
             else
@@ -157,21 +136,20 @@ namespace Hurtownia.Windows
 
         private void ButtonClient_Click(object sender, RoutedEventArgs e)
         {
-            SelectClientWindow selectClientWindow = new SelectClientWindow();
+            var selectClientWindow = new SelectClientWindow();
             selectClientWindow.ShowDialog();
             newInvoice.Client = Clients.GetClient(selectClientWindow.Index);
             ButtonClient.Content = newInvoice.Client.FirstName + " " + newInvoice.Client.LastName;
-            LabelDiscount.Content = newInvoice.Client.Discount.ToString() + "%";
-
+            LabelDiscount.Content = newInvoice.Client.Discount + "%";
         }
 
         private void ButtonProduct_Click(object sender, RoutedEventArgs e)
         {
-            SelectProductWindow selectProductWindow = new SelectProductWindow();
+            var selectProductWindow = new SelectProductWindow();
             selectProductWindow.ShowDialog();
-            Product currProduct = Products.GetProduct(selectProductWindow.Index);
+            var currProduct = Products.GetProduct(selectProductWindow.Index);
             ButtonProduct.Content = "[" + currProduct.Code + "] " + currProduct.Name + " (stan: " + currProduct.Quantity +
-                                   ")";
+                                    ")";
             CurrProduct = currProduct.Name;
         }
     }

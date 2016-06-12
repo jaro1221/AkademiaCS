@@ -1,5 +1,4 @@
-﻿using System;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Windows;
 using Hurtownia.Controllers;
 using Hurtownia.Models;
@@ -34,7 +33,6 @@ namespace Hurtownia
             Products.LoadProducts();
             Deliveries.LoadDeliveries();
             Invoices.LoadInvoices();
-           // SettingsValues.LoadSettings();
             LoadCompany();
         }
 
@@ -57,7 +55,6 @@ namespace Hurtownia
             saleWindow.Show();
         }
 
-        
 
         private void ButtonClients_Click(object sender, RoutedEventArgs e)
         {
@@ -99,7 +96,7 @@ namespace Hurtownia
 
         private void OpenInvoicesWindow()
         {
-            InvoicesWindow invoicesWindow = new InvoicesWindow();
+            var invoicesWindow = new InvoicesWindow();
             invoicesWindow.Show();
         }
     }

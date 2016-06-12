@@ -1,8 +1,5 @@
 ﻿using System;
 using System.IO;
-using System.Runtime.CompilerServices;
-using System.Windows;
-using Hurtownia.Classes;
 
 namespace Hurtownia.Models
 {
@@ -19,17 +16,24 @@ namespace Hurtownia.Models
         public static string CompanyPhone { get; set; }
         public static string Path { get; set; } = Environment.CurrentDirectory + "..\\Files\\company.conf";
 
+        public static string CompanyNumber { get; set; }
+
+        public static string CompanyStreet { get; set; }
+
+        public static string CompanyCity { get; set; }
+
+        public static string CompanyNation { get; set; }
+
         public static void LoadCompany()
         {
-            string[] values = new string[7];
-            using (StreamReader sr = new StreamReader(Path))
+            var values = new string[7];
+            using (var sr = new StreamReader(Path))
             {
-                int i = 0;
+                var i = 0;
                 while (!sr.EndOfStream)
                 {
-                    
-                    string line = sr.ReadLine();
-                    string[] data = line.Split('=');
+                    var line = sr.ReadLine();
+                    var data = line.Split('=');
                     values[i] = data[1];
                     i++;
                 }
@@ -41,16 +45,6 @@ namespace Hurtownia.Models
             CompanyStreet = values[4];
             CompanyNumber = values[5];
             CompanyPhone = values[6];
-
-
         }
-
-        public static string CompanyNumber { get; set; }
-
-        public static string CompanyStreet { get; set; }
-
-        public static string CompanyCity { get; set; }
-
-        public static string CompanyNation { get; set; }
     }
 }

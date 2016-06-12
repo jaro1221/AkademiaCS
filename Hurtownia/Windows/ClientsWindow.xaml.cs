@@ -29,8 +29,8 @@ namespace Hurtownia.Windows
             try
             {
                 var index = ListViewClients.SelectedIndex;
-                
-                MessageBoxResult result = MessageBox.Show("Czy na pewno?", "Usuwanie", MessageBoxButton.OKCancel);
+
+                var result = MessageBox.Show("Czy na pewno?", "Usuwanie", MessageBoxButton.OKCancel);
                 if (result == MessageBoxResult.OK)
                 {
                     Clients.DeleteClient(index);
@@ -68,7 +68,7 @@ namespace Hurtownia.Windows
 
         private void ListViewClients_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            int index = ListViewClients.SelectedIndex;
+            var index = ListViewClients.SelectedIndex;
             if (index == -1)
                 ButtonDelete.IsEnabled = false;
             else

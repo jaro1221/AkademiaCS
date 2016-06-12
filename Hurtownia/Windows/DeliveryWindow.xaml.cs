@@ -35,10 +35,6 @@ namespace Hurtownia.Windows
                 product.Quantity = double.Parse(TextBoxQuantity.Text);
                 product.Cost = product.Price*product.Quantity;
 
-                ////Product = Products.GetProduct(name);
-                //Product.Price = double.Parse(TextBoxPrice.Text);
-                //Product.Quantity = double.Parse(TextBoxQuantity.Text);
-                //Product.Cost = Product.Price*Product.Quantity;
 
                 newDelivery.AddProduct(product);
                 ResetFields();

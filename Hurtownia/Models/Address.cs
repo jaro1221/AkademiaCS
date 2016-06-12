@@ -14,12 +14,9 @@
         {
         }
 
-        public string FullAddress {
-            get
-            {
-                return Nation + ", " + City + " ul. " + Street + " " + Number;
-
-            }
+        public string FullAddress
+        {
+            get { return Nation + ", " + City + " ul. " + Street + " " + Number; }
         }
 
 

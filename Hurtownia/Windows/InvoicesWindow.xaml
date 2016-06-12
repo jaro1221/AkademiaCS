@@ -17,7 +17,8 @@
             <Label Name="LabelAll" Content="Liczba faktur: " />
         </StackPanel>
 
-        <ListView Name="ListViewInvoicesList" Grid.Row="1" MouseDoubleClick="ListViewInvoicesList_MouseDoubleClick" SelectionChanged="ListViewInvoicesList_OnSelectionChanged">
+        <ListView Name="ListViewInvoicesList" Grid.Row="1" MouseDoubleClick="ListViewInvoicesList_MouseDoubleClick"
+                  SelectionChanged="ListViewInvoicesList_OnSelectionChanged">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Nazwa" Width="100" DisplayMemberBinding="{Binding Number}" />
@@ -30,7 +31,7 @@
 
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
             <Button Margin="5,0,0,-0.2" Name="ButtonCancel" Content="Anuluj" Height="25" VerticalAlignment="Top"
-                     Click="ButtonCancel_OnClick" />
+                    Click="ButtonCancel_OnClick" />
             <Button Margin="5,0,0,-0.2" Name="ButtonDelete" Content="Usuń" Height="25" VerticalAlignment="Top"
                     Click="ButtonDelete_OnClick" IsEnabled="False" />
 

@@ -58,7 +58,7 @@ namespace Hurtownia.Windows
 
         private void TextBoxCode_OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            Random rand = new Random();
+            var rand = new Random();
             TextBoxCode.Text = rand.Next(100000, 999999).ToString();
         }
     }

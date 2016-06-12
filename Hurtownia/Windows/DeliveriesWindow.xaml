@@ -18,7 +18,7 @@
             <Label Name="LabelUnExec" Content=" w tym niewykonanych: " />
         </StackPanel>
 
-        <ListView Name="ListViewDeliveriesList" Grid.Row="1"  SelectionChanged="ListViewDeliveriesList_SelectionChanged"
+        <ListView Name="ListViewDeliveriesList" Grid.Row="1" SelectionChanged="ListViewDeliveriesList_SelectionChanged"
                   MouseDoubleClick="ListViewDeliveriesList_MouseDoubleClick">
             <ListView.View>
                 <GridView>

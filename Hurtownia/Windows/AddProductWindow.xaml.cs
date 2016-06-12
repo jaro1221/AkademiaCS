@@ -11,13 +11,14 @@ namespace Hurtownia.Windows
     /// </summary>
     public partial class AddProductWindow : Window
     {
-        public bool Added { get; set; }
         public AddProductWindow()
         {
             InitializeComponent();
             ComboBoxUnit.ItemsSource = Enum.GetValues(typeof(Product.Unit));
             ComboBoxUnit.SelectedIndex = 0;
         }
+
+        public bool Added { get; set; }
 
         private void ButtonCancel_Click(object sender, RoutedEventArgs e)
         {
@@ -48,7 +49,7 @@ namespace Hurtownia.Windows
 
         private void TextBoxCode_OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            Random rand = new Random();
+            var rand = new Random();
             TextBoxCode.Text = rand.Next(100000, 999999).ToString();
         }
     }

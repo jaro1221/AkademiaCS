@@ -29,7 +29,8 @@
             </StackPanel>
             <StackPanel Grid.Column="1" Orientation="Vertical" HorizontalAlignment="Left">
                 <TextBox Name="TextBoxName" Height="20" Width="150" />
-                <TextBox HorizontalAlignment="Left" Name="TextBoxCode" MaxLength="6" Height="20" Width="50" ToolTip="Kliknij dwukrotnie aby wygenerować" MouseDoubleClick="TextBoxCode_OnMouseDoubleClick" />
+                <TextBox HorizontalAlignment="Left" Name="TextBoxCode" MaxLength="6" Height="20" Width="50"
+                         ToolTip="Kliknij dwukrotnie aby wygenerować" MouseDoubleClick="TextBoxCode_OnMouseDoubleClick" />
                 <TextBox HorizontalAlignment="Left" Name="TextBoxEan" MaxLength="13" Height="20" Width="133" />
                 <TextBox Name="TextBoxQuantity" Height="20" Width="150" />
                 <ComboBox Name="ComboBoxUnit" Height="20" Width="150" />

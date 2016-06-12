@@ -1,6 +1,4 @@
 ﻿using System;
-using System.CodeDom;
-using System.Security.Cryptography;
 using System.Windows;
 using Hurtownia.Controllers;
 
@@ -41,7 +39,6 @@ namespace Hurtownia.Windows
                 Clients.AddClient(newClient);
                 Close();
                 MessageBox.Show("Dodano klienta: " + firstName + " " + lastName, "Sukces!");
-                
             }
             catch (Exception exception)
             {

@@ -27,9 +27,11 @@
                 <Label HorizontalContentAlignment="Right" Height="20" Padding="0,0,5,0">Cena:</Label>
 
             </StackPanel>
-            <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Grid.ColumnSpan="2" Margin="80,0,0,0" Width="150">
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Grid.ColumnSpan="2" Margin="80,0,0,0"
+                        Width="150">
                 <TextBox Name="TextBoxName" Height="20" Width="150" />
-                <TextBox ToolTip="Kliknij dwukrotnie aby wygenerować" MouseDoubleClick="TextBoxCode_OnMouseDoubleClick" HorizontalAlignment="Left" MaxLength="6" Name="TextBoxCode" Height="20" Width="50" />
+                <TextBox ToolTip="Kliknij dwukrotnie aby wygenerować" MouseDoubleClick="TextBoxCode_OnMouseDoubleClick"
+                         HorizontalAlignment="Left" MaxLength="6" Name="TextBoxCode" Height="20" Width="50" />
                 <TextBox HorizontalAlignment="Left" Name="TextBoxEan" MaxLength="13" Height="20" Width="133" />
                 <TextBox Name="TextBoxQuantity" Height="20" Width="150" />
                 <ComboBox Name="ComboBoxUnit" Height="20" Width="150" />

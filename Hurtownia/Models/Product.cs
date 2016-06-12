@@ -1,5 +1,4 @@
 ﻿using System;
-using Hurtownia.Models;
 
 namespace Hurtownia.Classes
 {
@@ -28,7 +27,6 @@ namespace Hurtownia.Classes
             EnumUnit = enumUnit;
         }
 
-       
 
         public string Name { get; set; }
         public string Code { get; set; }

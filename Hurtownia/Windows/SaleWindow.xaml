@@ -20,13 +20,13 @@
             <Label Margin="5,0,0,0" Content="Data sprzedaży: " />
             <DatePicker Name="DatePickerDate" Width="auto" />
             <Label Margin="5,0,0,0" Content="Klient: " />
-            <Button Name="ButtonClient" Content="Wybierz klienta..." Click="ButtonClient_Click"/>
+            <Button Name="ButtonClient" Content="Wybierz klienta..." Click="ButtonClient_Click" />
             <!--<ComboBox Name="ComboBoxClients" IsEditable="True" Width="158" Margin="0,0,0,-0.2" SelectionChanged="ComboBoxClients_SelectionChanged" />-->
 
         </StackPanel>
         <StackPanel Grid.Row="1" Orientation="Horizontal">
             <Label Content="Produkt: " />
-            <Button Name="ButtonProduct" Content="Wybierz produkt..." Width="220" Click="ButtonProduct_Click"/>
+            <Button Name="ButtonProduct" Content="Wybierz produkt..." Width="220" Click="ButtonProduct_Click" />
             <!--<ComboBox Name="ComboBoxProducts" IsEditable="True" Width="200"/>-->
             <Label Content=" Ilość: " />
             <TextBox Name="TextBoxQuantity" Text="" Width="50" TextAlignment="Center" />

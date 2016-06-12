@@ -19,7 +19,8 @@
                      TextChanged="TextBoxSearch_TextChanged" />
             <Label Name="LabelNumberOfProducts" Content="Liczba produktów: " />
         </StackPanel>
-        <ListView Name="ListViewWarehouse" Grid.Row="1" MouseDoubleClick="ListViewWarehouse_MouseDoubleClick" SelectionChanged="ListViewWarehouse_SelectionChanged">
+        <ListView Name="ListViewWarehouse" Grid.Row="1" MouseDoubleClick="ListViewWarehouse_MouseDoubleClick"
+                  SelectionChanged="ListViewWarehouse_SelectionChanged">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Kod" Width="50" DisplayMemberBinding="{Binding Code}" />

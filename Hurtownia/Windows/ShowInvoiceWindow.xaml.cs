@@ -1,34 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+﻿using System.Windows;
 using Hurtownia.Models;
 
 namespace Hurtownia.Windows
 {
     /// <summary>
-    /// Interaction logic for ShowInvoiceWindow.xaml
+    ///     Interaction logic for ShowInvoiceWindow.xaml
     /// </summary>
     public partial class ShowInvoiceWindow : Window
     {
-        private int _index;
-        private Invoice currInvoice;
+        private readonly int _index;
+        private readonly Invoice currInvoice;
 
 
         public ShowInvoiceWindow(int index)
         {
-            this._index = index;
+            _index = index;
             InitializeComponent();
-            
+
             currInvoice = Invoices.InvoicesList[_index];
             Title = "Faktura nr " + currInvoice.Number + " (" + currInvoice.Client.FirstName + " " +
                     currInvoice.Client.LastName + ")";
@@ -38,7 +26,6 @@ namespace Hurtownia.Windows
             StackPanelSums.DataContext = currInvoice;
             StackPanelToPay.DataContext = currInvoice;
             SetLabels();
-
         }
 
         public ShowInvoiceWindow(string number)
@@ -51,7 +38,6 @@ namespace Hurtownia.Windows
             StackPanelSums.DataContext = currInvoice;
             StackPanelToPay.DataContext = currInvoice;
             SetLabels();
-
         }
 
         private void SetLabels()
