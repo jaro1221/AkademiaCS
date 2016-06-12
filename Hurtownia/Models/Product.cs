@@ -40,8 +40,8 @@ namespace Hurtownia.Classes
         {
             get
             {
-                var value = Quantity*Price*Tax/100;
-                return value + "(" + Tax + "%)";
+                var value = Math.Round(Quantity*Price*Tax/100, 2);
+                return value + " (" + Tax + "%)";
             }
             set { }
         }
@@ -54,7 +54,7 @@ namespace Hurtownia.Classes
 
         public double Cost
         {
-            get { return Price*Quantity; }
+            get { return Math.Round(Price*Quantity, 2); }
             set { }
         }
 

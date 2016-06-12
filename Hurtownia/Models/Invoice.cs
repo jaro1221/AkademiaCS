@@ -29,7 +29,7 @@ namespace Hurtownia.Models
                 {
                     sum = sum + product.Brutto;
                 }
-                return sum*(1-(Client.Discount/100));
+                return Math.Round(sum*(1-(Client.Discount/100)), 2);
             }
             set { }
         }
@@ -43,7 +43,7 @@ namespace Hurtownia.Models
                 {
                     sum = sum + product.Cost*product.Tax/100;
                 }
-                return sum;
+                return Math.Round(sum, 2);
             }
             set { }
         }
@@ -57,7 +57,7 @@ namespace Hurtownia.Models
                 {
                     sum = sum + product.Cost;
                 }
-                return sum;
+                return Math.Round(sum, 2);
             }
             set { }
         }

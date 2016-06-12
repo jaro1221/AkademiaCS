@@ -18,7 +18,11 @@ namespace Hurtownia.Classes
 
         public string DeliverName { get; set; }
 
-        public double CostOfProducts { get; set; }
+        public double CostOfProducts
+        {
+            get { return Math.Round(CostOfProducts, 2); }
+            set { }
+        }
 
         public string IsExecuted { get; set; } = "nie";
 
