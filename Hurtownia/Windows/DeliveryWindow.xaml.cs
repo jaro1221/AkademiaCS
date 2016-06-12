@@ -82,7 +82,8 @@ namespace Hurtownia.Windows
         private void ButtonNewProduct_Click(object sender, RoutedEventArgs e)
         {
             var addProductWindow = new AddProductWindow();
-            addProductWindow.Show();
+            addProductWindow.ShowDialog();
+            ComboBoxProducts.ItemsSource = Products.GetProductsListAsString();
         }
     }
 }

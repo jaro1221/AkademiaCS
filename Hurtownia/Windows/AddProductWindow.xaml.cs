@@ -11,6 +11,7 @@ namespace Hurtownia.Windows
     /// </summary>
     public partial class AddProductWindow : Window
     {
+        public bool Added { get; set; }
         public AddProductWindow()
         {
             InitializeComponent();
@@ -37,6 +38,7 @@ namespace Hurtownia.Windows
                 Products.AddProduct(newProduct);
                 Close();
                 MessageBox.Show("Produkt został dodany pomyślnie.", "Sukces!");
+                Added = true;
             }
             catch (Exception exception)
             {
