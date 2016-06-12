@@ -23,7 +23,7 @@ namespace Hurtownia.Windows
             TextBoxDocNumber.Text = DateTime.Now.Date.Year.ToString() + "/" + DateTime.Now.Date.Month.ToString() + "/" +
                                     DateTime.Now.Date.Day + "/" + (Invoices.InvoicesList.Count + 1).ToString();
             ComboBoxProducts.ItemsSource = Products.GetProductsListAsString();
-            ComboBoxClients.ItemsSource = Clients.GetClientsListAsString();
+            //ComboBoxClients.ItemsSource = Clients.GetClientsListAsString();
 
             StackPanelInfos1.DataContext = this;
             StackPanelInfos.DataContext = newInvoice;
@@ -127,11 +127,11 @@ namespace Hurtownia.Windows
             }
         }
 
-        private void ComboBoxClients_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
-        {
-            newInvoice.Client = Clients.GetClient(ComboBoxClients.SelectedIndex);
-            LabelDiscount.Content = newInvoice.Client.Discount.ToString() + "%";
-        }
+        //private void ComboBoxClients_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        //{
+        //    newInvoice.Client = Clients.GetClient(ComboBoxClients.SelectedIndex);
+        //    LabelDiscount.Content = newInvoice.Client.Discount.ToString() + "%";
+        //}
 
         private void TextBoxQuantity_GotFocus(object sender, RoutedEventArgs e)
         {
@@ -158,6 +158,16 @@ namespace Hurtownia.Windows
                 ButtonDelete.IsEnabled = false;
             else
                 ButtonDelete.IsEnabled = true;
+        }
+
+        private void ButtonClient_Click(object sender, RoutedEventArgs e)
+        {
+            SelectClientWindow selectClientWindow = new SelectClientWindow();
+            selectClientWindow.ShowDialog();
+            newInvoice.Client = Clients.GetClient(selectClientWindow.Index);
+            ButtonClient.Content = newInvoice.Client.FirstName + " " + newInvoice.Client.LastName;
+            LabelDiscount.Content = newInvoice.Client.Discount.ToString() + "%";
+
         }
     }
 }
