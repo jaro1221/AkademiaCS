@@ -26,9 +26,10 @@
         </StackPanel>
         <StackPanel Grid.Row="1" Orientation="Horizontal">
             <Label Content="Produkt: " />
-            <ComboBox Name="ComboBoxProducts" IsEditable="True" Width="200"/>
+            <Button Name="ButtonProduct" Content="Wybierz produkt..." Width="220" Click="ButtonProduct_Click"/>
+            <!--<ComboBox Name="ComboBoxProducts" IsEditable="True" Width="200"/>-->
             <Label Content=" Ilość: " />
-            <TextBox Name="TextBoxQuantity" Text="" Width="50" TextAlignment="Center" GotFocus="TextBoxQuantity_GotFocus" />
+            <TextBox Name="TextBoxQuantity" Text="" Width="50" TextAlignment="Center" />
             <Button Name="ButtonAdd" Margin="5,0,0,-0.2" Content="Dodaj" Click="ButtonAdd_Click" />
             <Button Name="ButtonDelete" IsEnabled="False" Margin="150,0,0,0" Content="Usuń" Click="ButtonDelete_Click" />
         </StackPanel>

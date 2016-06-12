@@ -15,6 +15,7 @@ namespace Hurtownia.Windows
     {
         private Invoice newInvoice = new Invoice();
         public Client Client { get; set; }
+        public string CurrProduct { get; set; }
 
 
         public SaleWindow()
@@ -22,7 +23,7 @@ namespace Hurtownia.Windows
             InitializeComponent();
             TextBoxDocNumber.Text = DateTime.Now.Date.Year.ToString() + "/" + DateTime.Now.Date.Month.ToString() + "/" +
                                     DateTime.Now.Date.Day + "/" + (Invoices.InvoicesList.Count + 1).ToString();
-            ComboBoxProducts.ItemsSource = Products.GetProductsListAsString();
+            //ComboBoxProducts.ItemsSource = Products.GetProductsListAsString();
             //ComboBoxClients.ItemsSource = Clients.GetClientsListAsString();
 
             StackPanelInfos1.DataContext = this;
@@ -48,7 +49,7 @@ namespace Hurtownia.Windows
 
 
 
-            var name = ComboBoxProducts.Text;
+            var name = this.CurrProduct;
 
             var product = Products.GetProduct(name);
             product.Quantity = double.Parse(TextBoxQuantity.Text);
@@ -92,9 +93,8 @@ namespace Hurtownia.Windows
 
         private void ResetFields()
         {
-            ComboBoxProducts.Text = "";
+            ButtonProduct.Content = "Wybierz produkt...";
             TextBoxQuantity.Text = "";
-            ComboBoxProducts.Focus();
         }
 
 
@@ -133,12 +133,7 @@ namespace Hurtownia.Windows
         //    LabelDiscount.Content = newInvoice.Client.Discount.ToString() + "%";
         //}
 
-        private void TextBoxQuantity_GotFocus(object sender, RoutedEventArgs e)
-        {
-            Product product = Products.GetProduct(ComboBoxProducts.Text);
-            TextBoxQuantity.Text = "max. " + product.Quantity;
-            TextBoxQuantity.SelectAll();
-        }
+        
 
         private void ButtonDelete_Click(object sender, RoutedEventArgs e)
         {
@@ -168,6 +163,16 @@ namespace Hurtownia.Windows
             ButtonClient.Content = newInvoice.Client.FirstName + " " + newInvoice.Client.LastName;
             LabelDiscount.Content = newInvoice.Client.Discount.ToString() + "%";
 
+        }
+
+        private void ButtonProduct_Click(object sender, RoutedEventArgs e)
+        {
+            SelectProductWindow selectProductWindow = new SelectProductWindow();
+            selectProductWindow.ShowDialog();
+            Product currProduct = Products.GetProduct(selectProductWindow.Index);
+            ButtonProduct.Content = "[" + currProduct.Code + "] " + currProduct.Name + " (stan: " + currProduct.Quantity +
+                                   ")";
+            CurrProduct = currProduct.Name;
         }
     }
 }

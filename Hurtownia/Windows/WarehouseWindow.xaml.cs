@@ -57,7 +57,7 @@ namespace Hurtownia.Windows
             else if (length == 0)
             {
                 ListViewWarehouse.ItemsSource = Products.ProductsList;
-                LabelNumberOfProducts.Content = "Liczba klientów: " + ListViewWarehouse.Items.Count;
+                LabelNumberOfProducts.Content = "Liczba produktów: " + ListViewWarehouse.Items.Count;
             }
         }
 

@@ -96,6 +96,9 @@
     <Compile Include="Windows\SelectClientWindow.xaml.cs">
       <DependentUpon>SelectClientWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\SelectProductWindow.xaml.cs">
+      <DependentUpon>SelectProductWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\ShowDeliveryWindow.xaml.cs">
       <DependentUpon>ShowDeliveryWindow.xaml</DependentUpon>
     </Compile>
@@ -154,6 +157,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\SelectClientWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\SelectProductWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
