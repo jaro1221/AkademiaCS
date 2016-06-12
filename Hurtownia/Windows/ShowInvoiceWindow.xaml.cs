@@ -28,7 +28,23 @@ namespace Hurtownia.Windows
         {
             this._index = index;
             InitializeComponent();
+            
             currInvoice = Invoices.InvoicesList[_index];
+            Title = "Faktura nr " + currInvoice.Number + " (" + currInvoice.Client.FirstName + " " +
+                    currInvoice.Client.LastName + ")";
+            StackPanelClient.DataContext = currInvoice.Client;
+            StackPanelInvoice.DataContext = currInvoice;
+            ListViewProducts.ItemsSource = currInvoice.ProductsList;
+            StackPanelSums.DataContext = currInvoice;
+            StackPanelToPay.DataContext = currInvoice;
+            SetLabels();
+
+        }
+
+        public ShowInvoiceWindow(string number)
+        {
+            InitializeComponent();
+            currInvoice = Invoices.GetInvoice(number);
             StackPanelClient.DataContext = currInvoice.Client;
             StackPanelInvoice.DataContext = currInvoice;
             ListViewProducts.ItemsSource = currInvoice.ProductsList;

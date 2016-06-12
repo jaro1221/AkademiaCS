@@ -30,8 +30,13 @@ namespace Hurtownia.Windows
             try
             {
                 var index = ListViewWarehouse.SelectedIndex;
-                Products.DeleteProduct(index);
-                MessageBox.Show("Usunięto produkt");
+                var result = MessageBox.Show("Czy na pewno?", "Usuwanie", MessageBoxButton.OKCancel);
+                if (result == MessageBoxResult.OK)
+                {
+                    Products.DeleteProduct(index);
+                    MessageBox.Show("Usunięto produkt.", "Sukces!");
+
+                }
             }
             catch (Exception ex)
             {
@@ -61,6 +66,17 @@ namespace Hurtownia.Windows
             var index = ListViewWarehouse.SelectedIndex;
             var editProductWindow = new EditProductWindow(index);
             editProductWindow.Show();
+        }
+
+        private void ListViewWarehouse_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int index = ListViewWarehouse.SelectedIndex;
+            if (index == -1)
+                ButtonDelete.IsEnabled = false;
+            else
+            {
+                ButtonDelete.IsEnabled = true;
+            }
         }
     }
 }

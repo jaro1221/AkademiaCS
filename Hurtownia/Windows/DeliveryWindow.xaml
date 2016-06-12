@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Hurtownia.Windows"
         mc:Ignorable="d"
-        Title="DeliveryWindow" Height="369.8" Width="457.4">
+        Title="Dodaj dostawę" Height="369.8" Width="457.4">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="25" />
@@ -18,7 +18,7 @@
             <Label Height="20" Padding="0,0,0,0" Content="Data dostawy: " />
             <DatePicker Name="DateOfDelivery" Height="20" Padding="0,0,0,0" />
             <Label Height="20" Margin="10,0,0,0" Padding="0,0,0,0" Content="Nazwa dostawcy: " />
-            <TextBox Name="NameDelivery" Height="20" Width="100" Padding="0,0,0,0" />
+            <TextBox Name="NameDelivery" Height="20" Width="166" Padding="0,0,0,0" Margin="0,2,0,2.8" />
 
         </StackPanel>
 
@@ -37,12 +37,12 @@
         <ListView Name="ListViewDeliveryList" Grid.Row="2">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Kod" Width="auto" DisplayMemberBinding="{Binding Code}" />
-                    <GridViewColumn Header="Nazwa" Width="auto" DisplayMemberBinding="{Binding Name}" />
-                    <GridViewColumn Header="Ilość" Width="auto" DisplayMemberBinding="{Binding Quantity}" />
-                    <GridViewColumn Header="Jednostka" Width="auto" DisplayMemberBinding="{Binding EnumUnit}" />
-                    <GridViewColumn Header="Cena" Width="auto" DisplayMemberBinding="{Binding Price}" />
-                    <GridViewColumn Header="Kwota" Width="auto" DisplayMemberBinding="{Binding Cost}" />
+                    <GridViewColumn Header="Kod" Width="50" DisplayMemberBinding="{Binding Code}" />
+                    <GridViewColumn Header="Nazwa" Width="150" DisplayMemberBinding="{Binding Name}" />
+                    <GridViewColumn Header="Ilość" Width="50" DisplayMemberBinding="{Binding Quantity}" />
+                    <GridViewColumn Header="Jm" Width="30" DisplayMemberBinding="{Binding EnumUnit}" />
+                    <GridViewColumn Header="Cena" Width="70" DisplayMemberBinding="{Binding Price}" />
+                    <GridViewColumn Header="Kwota" Width="70" DisplayMemberBinding="{Binding Cost}" />
                 </GridView>
             </ListView.View>
         </ListView>

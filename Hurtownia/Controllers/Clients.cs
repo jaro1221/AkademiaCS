@@ -118,7 +118,7 @@ namespace Hurtownia.Controllers
             var StringsList = new ObservableCollection<string>();
             foreach (var product in ClientsList)
             {
-                StringsList.Add(product.LastName + " " + product.FirstName + "(" + product.Nip + ")");
+                StringsList.Add(product.LastName + " " + product.FirstName + " (" + product.Nip + ")");
             }
             return StringsList;
         }

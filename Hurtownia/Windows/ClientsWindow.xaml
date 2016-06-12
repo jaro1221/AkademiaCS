@@ -5,30 +5,34 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Hurtownia.Windows"
         mc:Ignorable="d"
-        Title="ClientsWindow" Height="300" Width="492.4">
+        Title="Klienci" Height="300" Width="517.4">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="25" />
             <RowDefinition Height="*" />
+            <RowDefinition Height="25"/>
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal">
             <Button Name="ButtonAdd" Content="Dodaj klienta" Margin="0,0,5,0" Click="ButtonAdd_Click" />
-            <Button Name="ButtonDelete" Content="Usuń klienta " Margin="0,0,5,0" Click="ButtonDelete_Click" />
             <Label Content="Szukaj: " />
             <TextBox Name="TextBoxSearch" Padding="0,0,0,0" Height="20" Width="100"
                      TextChanged="TextBoxSearch_TextChanged" />
             <Label Name="LabelNumberOfClients" Content="Liczba klientów: " />
         </StackPanel>
-        <ListView Name="ListViewClients" Grid.Row="1" MouseDoubleClick="ListViewClients_MouseDoubleClick">
+        <ListView Name="ListViewClients" Grid.Row="1" MouseDoubleClick="ListViewClients_MouseDoubleClick" SelectionChanged="ListViewClients_SelectionChanged">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Nazwisko" Width="120" DisplayMemberBinding="{Binding LastName}" />
-                    <GridViewColumn Header="Imię" Width="80" DisplayMemberBinding="{Binding FirstName}" />
+                    <GridViewColumn Header="Nazwisko" Width="100" DisplayMemberBinding="{Binding LastName}" />
+                    <GridViewColumn Header="Imię" Width="100" DisplayMemberBinding="{Binding FirstName}" />
                     <GridViewColumn Header="NIP" Width="80" DisplayMemberBinding="{Binding Nip}" />
                     <GridViewColumn Header="Adres" Width="200" DisplayMemberBinding="{Binding FullAddress}" />
                 </GridView>
 
             </ListView.View>
         </ListView>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Name="ButtonDelete" Content="Usuń" Margin="0,0,0,0" IsEnabled="False" Click="ButtonDelete_Click" />
+
+        </StackPanel>
     </Grid>
 </Window>

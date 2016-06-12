@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Hurtownia.Windows"
         mc:Ignorable="d"
-        Title="ShowInvoiceWindow" Height="614.8" Width="587.4">
+        Title="Faktura" Height="614.8" Width="587.4">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
@@ -26,8 +26,8 @@
                 <Label Name="LabelCompanyPhone" Content="Telefon" Padding="0,0,0,0" />
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <Label Name="LabelCity" HorizontalAlignment="Right" HorizontalContentAlignment="Right" Content="Miasto" Width="90"/>
-                <Label Name="LabelDate" HorizontalAlignment="Right" HorizontalContentAlignment="Right" Content="Data" Width="90"/>
+                <Label Name="LabelCity" HorizontalAlignment="Right" HorizontalContentAlignment="Right" Content="Miasto" Width="105"/>
+                <Label Name="LabelDate" HorizontalAlignment="Right" HorizontalContentAlignment="Right" Content="Data" Width="70"/>
             </StackPanel>
         </StackPanel>
         <StackPanel Name="StackPanelClient" Grid.Row="1" Orientation="Vertical">

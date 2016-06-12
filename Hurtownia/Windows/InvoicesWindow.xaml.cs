@@ -32,7 +32,13 @@ namespace Hurtownia.Windows
         private void ButtonDelete_OnClick(object sender, RoutedEventArgs e)
         {
             int index = ListViewInvoicesList.SelectedIndex;
-            Invoices.DeleteIncoice(index);
+            var result = MessageBox.Show("Czy na pewno?", "Usuwanie", MessageBoxButton.OKCancel);
+            if (result == MessageBoxResult.OK)
+            {
+                Invoices.DeleteIncoice(index);
+                MessageBox.Show("Pomyślnie usunięto fakturę.", "Sukces!");
+
+            }
         }
 
         private void ListViewInvoicesList_MouseDoubleClick(object sender, MouseButtonEventArgs e)

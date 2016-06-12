@@ -107,5 +107,15 @@ namespace Hurtownia.Models
             }
         }
 
+        public static Invoice GetInvoice(string number)
+        {
+            foreach (var invoice in InvoicesList)
+            {
+                if (invoice.Number == number)
+                    return invoice;
+
+            }
+            return null;
+        }
     }
 }

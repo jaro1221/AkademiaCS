@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Hurtownia.Windows"
         mc:Ignorable="d"
-        Title="EditClientWindow" Height="300" Width="267.4">
+        Title="Edytuj klienta" Height="300" Width="267.4">
     <Grid>
         <Grid.RowDefinitions>
 

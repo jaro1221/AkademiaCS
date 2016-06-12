@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Hurtownia.Windows"
         mc:Ignorable="d"
-        Title="AddProductWindow" Height="184.75" Width="262.4">
+        Title="Dodaj produkt" Height="184.75" Width="267.4">
     <Grid>
         <Grid.RowDefinitions>
 
@@ -29,8 +29,8 @@
             </StackPanel>
             <StackPanel Grid.Column="1" Orientation="Vertical" HorizontalAlignment="Left">
                 <TextBox Name="TextBoxName" Height="20" Width="150" />
-                <TextBox Name="TextBoxCode" Height="20" Width="150" />
-                <TextBox Name="TextBoxEan" Height="20" Width="150" />
+                <TextBox HorizontalAlignment="Left" Name="TextBoxCode" MaxLength="6" Height="20" Width="50" ToolTip="Kliknij dwukrotnie aby wygenerować" MouseDoubleClick="TextBoxCode_OnMouseDoubleClick" />
+                <TextBox HorizontalAlignment="Left" Name="TextBoxEan" MaxLength="13" Height="20" Width="133" />
                 <TextBox Name="TextBoxQuantity" Height="20" Width="150" />
                 <ComboBox Name="ComboBoxUnit" Height="20" Width="150" />
                 <TextBox Name="TextBoxPrice" Height="20" Width="150" />
@@ -41,7 +41,7 @@
 
         <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center">
             <Button Name="ButtonCancel" Content="Anuluj" Click="ButtonCancel_Click" />
-            <Button Margin="5,0,0,0" Name="ButtonAdd" Content="Dodaj klienta" Click="ButtonAdd_Click" />
+            <Button Margin="5,0,0,0" Name="ButtonAdd" Content="Dodaj produkt" Click="ButtonAdd_Click" />
 
         </StackPanel>
 

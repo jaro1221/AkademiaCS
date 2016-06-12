@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Hurtownia.Windows"
         mc:Ignorable="d"
-        Title="AddClientWindow" Height="279.8" Width="267.4">
+        Title="Dodaj klienta" Height="279.8" Width="267.4">
     <Grid>
         <Grid.RowDefinitions>
 
@@ -24,7 +24,7 @@
                 <Separator />
                 <Label HorizontalContentAlignment="Right" Height="20" Padding="0,0,5,0">NIP:</Label>
                 <Label HorizontalContentAlignment="Right" Height="20" Padding="0,0,5,0">Telefon:</Label>
-                <Label HorizontalContentAlignment="Right" Height="20" Padding="0,0,5,0">Zniżka:</Label>
+                <Label HorizontalContentAlignment="Right" Height="20" Padding="0,0,5,0">Zniżka [%]:</Label>
                 <Separator />
                 <Label HorizontalContentAlignment="Right" Height="20" Padding="0,0,5,0">Państwo:</Label>
                 <Label HorizontalContentAlignment="Right" Height="20" Padding="0,0,5,0">Miasto:</Label>
@@ -38,14 +38,14 @@
                 <TextBox Name="TextBoxLastName" Height="20" Width="150" />
                 <DatePicker Name="DatePickerDateOfBirth" Padding="0,0,0,0" />
                 <Separator />
-                <TextBox Name="TextBoxNip" Height="20" Width="150" />
-                <TextBox Name="TextBoxPhone" Height="20" Width="150" />
-                <TextBox Name="TextBoxDiscount" Height="20" Width="150" />
+                <TextBox Name="TextBoxNip" MaxLength="10" Height="20" Width="150" />
+                <TextBox Name="TextBoxPhone" MaxLength="9" Height="20" Width="150" />
+                <TextBox HorizontalAlignment="Left" Name="TextBoxDiscount" MaxLength="3" Height="20" Width="50" />
                 <Separator />
                 <TextBox Name="TextBoxNation" Height="20" Width="150" />
                 <TextBox Name="TextBoxCity" Height="20" Width="150" />
                 <TextBox Name="TextBoxStreet" Height="20" Width="150" />
-                <TextBox Name="TextBoxNumber" Height="20" Width="150" />
+                <TextBox Name="TextBoxNumber" HorizontalAlignment="Left" MaxLength="5" Height="20" Width="50" />
 
 
             </StackPanel>

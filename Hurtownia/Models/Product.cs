@@ -1,4 +1,6 @@
-﻿namespace Hurtownia.Classes
+﻿using Hurtownia.Models;
+
+namespace Hurtownia.Classes
 {
     public class Product
     {
@@ -24,6 +26,8 @@
             Cost = price*quantity;
             EnumUnit = enumUnit;
         }
+
+       
 
         public string Name { get; set; }
         public string Code { get; set; }

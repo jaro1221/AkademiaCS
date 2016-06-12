@@ -29,12 +29,17 @@ namespace Hurtownia.Windows
             try
             {
                 var index = ListViewClients.SelectedIndex;
-                Clients.DeleteClient(index);
-                MessageBox.Show("Usunięto klienta");
+                
+                MessageBoxResult result = MessageBox.Show("Czy na pewno?", "Usuwanie", MessageBoxButton.OKCancel);
+                if (result == MessageBoxResult.OK)
+                {
+                    Clients.DeleteClient(index);
+                    MessageBox.Show("Usunięto klienta", "Sukces!");
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Wystąpił błąd.\nSzczegóły: " + ex.Message, "Błąd!");
             }
         }
 
@@ -59,6 +64,17 @@ namespace Hurtownia.Windows
             var index = ListViewClients.SelectedIndex;
             var editClientWindow = new EditClientWindow(index);
             editClientWindow.Show();
+        }
+
+        private void ListViewClients_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int index = ListViewClients.SelectedIndex;
+            if (index == -1)
+                ButtonDelete.IsEnabled = false;
+            else
+            {
+                ButtonDelete.IsEnabled = true;
+            }
         }
     }
 }

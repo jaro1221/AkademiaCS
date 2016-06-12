@@ -93,9 +93,6 @@
     <Compile Include="Windows\SaleWindow.xaml.cs">
       <DependentUpon>SaleWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\SearchClientWindow.xaml.cs">
-      <DependentUpon>SearchClientWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Windows\ShowDeliveryWindow.xaml.cs">
       <DependentUpon>ShowDeliveryWindow.xaml</DependentUpon>
     </Compile>
@@ -153,10 +150,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\SearchClientWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Windows\ShowDeliveryWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -205,6 +198,9 @@
     <Resource Include="bin\Debug\Files\clients.xml" />
     <Resource Include="bin\Debug\Files\deliveries.xml" />
     <Resource Include="bin\Debug\Files\products.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="bin\Debug\Files\invoices.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

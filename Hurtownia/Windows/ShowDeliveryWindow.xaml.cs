@@ -24,9 +24,13 @@ namespace Hurtownia.Windows
 
         private void ButtonDelete_Click(object sender, RoutedEventArgs e)
         {
-            Deliveries.DeleteDelivery(Index);
-            MessageBox.Show("Usunięto dostawę");
-            Close();
+            var result = MessageBox.Show("Czy na pewno?", "Usuwanie", MessageBoxButton.OKCancel);
+            if (result == MessageBoxResult.OK)
+            {
+                Deliveries.DeleteDelivery(Index);
+                Close();
+                MessageBox.Show("Pomyślnie usunięto dostawę", "Sukces!");
+            }
         }
 
         private void ButtonCancel_Click(object sender, RoutedEventArgs e)

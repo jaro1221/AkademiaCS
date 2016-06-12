@@ -62,6 +62,9 @@ namespace Hurtownia.Models
             set { }
         }
 
+        public string DateString {
+            get { return this.DateTime.ToShortDateString(); } }
+
         public DateTime DateTime { get; set; }
 
         public int NumberOfProducts
@@ -74,6 +77,11 @@ namespace Hurtownia.Models
         {
             ProductsList.Add(product);
             NumberOfProducts = ProductsList.Count;
+        }
+
+        public void DeleteProduct(int index)
+        {
+            ProductsList.RemoveAt(index);
         }
     }
 }

@@ -12,7 +12,7 @@ namespace Hurtownia.Classes
 
         public string DateAsString
         {
-            get { return DateOfDelivery.ToLongDateString(); }
+            get { return DateOfDelivery.ToShortDateString(); }
             set { }
         }
 

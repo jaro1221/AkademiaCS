@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Hurtownia.Windows"
         mc:Ignorable="d"
-        Title="ShowDeliveryWindow" Height="300" Width="452.4">
+        Title="Szczegóły dostawy" Height="300" Width="452.4">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="25" />

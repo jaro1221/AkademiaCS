@@ -54,10 +54,11 @@ namespace Hurtownia.Windows
                     new Client(nation, city, street, number, firstName, lastName, dateOfBirth, nip, phone, discount),
                     Index);
                 Close();
+                MessageBox.Show("Dane klienta zostały zmienione pomyślnie.", "Sukces!");
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Sprawdź wprowadzone dane.\nSzczegóły: " + ex.Message, "Błąd!");
             }
         }
     }

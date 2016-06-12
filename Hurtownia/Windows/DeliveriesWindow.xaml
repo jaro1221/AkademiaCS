@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Hurtownia.Windows"
         mc:Ignorable="d"
-        Title="DeliveriesWindow" Height="309.8" Width="377.4">
+        Title="Dostawy" Height="309.8" Width="457.388">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="25" />
@@ -18,15 +18,15 @@
             <Label Name="LabelUnExec" Content=" w tym niewykonanych: " />
         </StackPanel>
 
-        <ListView Name="ListViewDeliveriesList" Grid.Row="1" SelectionChanged="ListViewDeliveriesList_SelectionChanged"
+        <ListView Name="ListViewDeliveriesList" Grid.Row="1"  SelectionChanged="ListViewDeliveriesList_SelectionChanged"
                   MouseDoubleClick="ListViewDeliveriesList_MouseDoubleClick">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Data" Width="auto" DisplayMemberBinding="{Binding DateAsString}" />
-                    <GridViewColumn Header="Dostawca" Width="auto" DisplayMemberBinding="{Binding DeliverName}" />
-                    <GridViewColumn Header="Ilość" Width="auto" DisplayMemberBinding="{Binding NumberOfProducts}" />
-                    <GridViewColumn Header="Koszt dostawy" Width="auto" DisplayMemberBinding="{Binding CostOfProducts}" />
-                    <GridViewColumn Header="Wykonana" Width="auto" DisplayMemberBinding="{Binding IsExecuted}" />
+                    <GridViewColumn Header="Data" Width="80" DisplayMemberBinding="{Binding DateAsString}" />
+                    <GridViewColumn Header="Dostawca" Width="150" DisplayMemberBinding="{Binding DeliverName}" />
+                    <GridViewColumn Header="Ilość" Width="35" DisplayMemberBinding="{Binding NumberOfProducts}" />
+                    <GridViewColumn Header="Koszt dostawy" Width="80" DisplayMemberBinding="{Binding CostOfProducts}" />
+                    <GridViewColumn Header="Wykonana" Width="70" DisplayMemberBinding="{Binding IsExecuted}" />
                 </GridView>
             </ListView.View>
         </ListView>

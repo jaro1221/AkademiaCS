@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Hurtownia.Windows"
         mc:Ignorable="d"
-        Title="InvoicesWindow" Height="300" Width="497.4">
+        Title="Faktury" Height="300" Width="427.3">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="25" />
@@ -20,9 +20,9 @@
         <ListView Name="ListViewInvoicesList" Grid.Row="1" MouseDoubleClick="ListViewInvoicesList_MouseDoubleClick" SelectionChanged="ListViewInvoicesList_OnSelectionChanged">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Nazwa" Width="auto" DisplayMemberBinding="{Binding Number}" />
-                    <GridViewColumn Header="Data" Width="auto" DisplayMemberBinding="{Binding DateTime}" />
-                    <GridViewColumn Header="Klient" Width="auto" DisplayMemberBinding="{Binding ClientString}" />
+                    <GridViewColumn Header="Nazwa" Width="100" DisplayMemberBinding="{Binding Number}" />
+                    <GridViewColumn Header="Data" Width="100" DisplayMemberBinding="{Binding DateString}" />
+                    <GridViewColumn Header="Klient" Width="180" DisplayMemberBinding="{Binding ClientString}" />
                 </GridView>
             </ListView.View>
         </ListView>

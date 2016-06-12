@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Hurtownia.Windows"
         mc:Ignorable="d"
-        Title="SaleWindow" Height="400" Width="600">
+        Title="Sprzedaż" Height="400" Width="600">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="25" />
@@ -16,22 +16,23 @@
         </Grid.RowDefinitions>
         <StackPanel Name="StackPanelInfos1" Grid.Row="0" Orientation="Horizontal">
             <Label Content="Faktura nr: " />
-            <TextBox Width="50" Name="TextBoxDocNumber" />
+            <TextBox Width="100" Name="TextBoxDocNumber" />
             <Label Margin="5,0,0,0" Content="Data sprzedaży: " />
             <DatePicker Name="DatePickerDate" Width="auto" />
             <Label Margin="5,0,0,0" Content="Klient: " />
-            <ComboBox Name="ComboBoxClients" IsEditable="True" Width="133" Margin="0,0,0,-0.2" SelectionChanged="ComboBoxClients_SelectionChanged" />
+            <ComboBox Name="ComboBoxClients" IsEditable="True" Width="158" Margin="0,0,0,-0.2" SelectionChanged="ComboBoxClients_SelectionChanged" />
 
         </StackPanel>
         <StackPanel Grid.Row="1" Orientation="Horizontal">
             <Label Content="Produkt: " />
-            <ComboBox Name="ComboBoxProducts" IsEditable="True" Width="200" />
+            <ComboBox Name="ComboBoxProducts" IsEditable="True" Width="200"/>
             <Label Content=" Ilość: " />
-            <TextBox Name="TextBoxQuantity" Text="15" Width="50" TextAlignment="Center" />
+            <TextBox Name="TextBoxQuantity" Text="" Width="50" TextAlignment="Center" GotFocus="TextBoxQuantity_GotFocus" />
             <Button Name="ButtonAdd" Margin="5,0,0,-0.2" Content="Dodaj" Click="ButtonAdd_Click" />
+            <Button Name="ButtonDelete" IsEnabled="False" Margin="150,0,0,0" Content="Usuń" Click="ButtonDelete_Click" />
         </StackPanel>
 
-        <ListView Name="ListViewClients" Grid.Row="2">
+        <ListView Name="ListViewClients" Grid.Row="2" SelectionChanged="ListViewClients_OnSelectionChanged">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Kod" Width="auto" DisplayMemberBinding="{Binding Code}" />

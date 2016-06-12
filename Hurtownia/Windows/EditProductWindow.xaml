@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Hurtownia.Windows"
         mc:Ignorable="d"
-        Title="EditProductWindow" Height="300" Width="300">
+        Title="Edytuj produkt" Height="189.8" Width="247.4">
     <Grid>
         <Grid.RowDefinitions>
 
@@ -17,7 +17,7 @@
                 <ColumnDefinition Width="100" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <StackPanel Grid.Column="0" Orientation="Vertical" HorizontalAlignment="Right">
+            <StackPanel Grid.Column="0" Orientation="Vertical" HorizontalAlignment="Right" Width="65" Margin="0,0,25,0">
                 <Label HorizontalContentAlignment="Right" Height="20" Padding="0,0,5,0">Nazwa:</Label>
                 <Label HorizontalContentAlignment="Right" Height="20" Padding="0,0,5,0">Kod:</Label>
                 <Label HorizontalContentAlignment="Right" Height="20" Padding="0,0,5,0">EAN:</Label>
@@ -27,10 +27,10 @@
                 <Label HorizontalContentAlignment="Right" Height="20" Padding="0,0,5,0">Cena:</Label>
 
             </StackPanel>
-            <StackPanel Grid.Column="1" Orientation="Vertical" HorizontalAlignment="Left">
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Grid.ColumnSpan="2" Margin="80,0,0,0" Width="150">
                 <TextBox Name="TextBoxName" Height="20" Width="150" />
-                <TextBox Name="TextBoxCode" Height="20" Width="150" />
-                <TextBox Name="TextBoxEan" Height="20" Width="150" />
+                <TextBox ToolTip="Kliknij dwukrotnie aby wygenerować" MouseDoubleClick="TextBoxCode_OnMouseDoubleClick" HorizontalAlignment="Left" MaxLength="6" Name="TextBoxCode" Height="20" Width="50" />
+                <TextBox HorizontalAlignment="Left" Name="TextBoxEan" MaxLength="13" Height="20" Width="133" />
                 <TextBox Name="TextBoxQuantity" Height="20" Width="150" />
                 <ComboBox Name="ComboBoxUnit" Height="20" Width="150" />
                 <TextBox Name="TextBoxPrice" Height="20" Width="150" />
@@ -41,7 +41,7 @@
 
         <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center">
             <Button Name="ButtonCancel" Content="Anuluj" Click="ButtonCancel_Click" />
-            <Button Margin="5,0,0,0" Name="ButtonEdit" Content="Edytuj klienta" Click="ButtonEdit_Click" />
+            <Button Margin="5,0,0,0" Name="ButtonEdit" Content="Edytuj produkt" Click="ButtonEdit_Click" />
 
         </StackPanel>
 

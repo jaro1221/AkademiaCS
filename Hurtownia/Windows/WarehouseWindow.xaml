@@ -10,28 +10,31 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="25" />
             <RowDefinition Height="*" />
+            <RowDefinition Height="25" />
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal">
             <Button Name="ButtonAdd" Content="Dodaj produkt" Margin="0,0,5,0" Click="ButtonAdd_Click" />
-            <Button Name="ButtonDelete" Content="Usuń produkt " Margin="0,0,5,0" Click="ButtonDelete_Click" />
             <Label Content="Szukaj: " />
             <TextBox Name="TextBoxSearch" Padding="0,0,0,0" Height="20" Width="100"
                      TextChanged="TextBoxSearch_TextChanged" />
             <Label Name="LabelNumberOfProducts" Content="Liczba klientów: " />
         </StackPanel>
-        <ListView Name="ListViewWarehouse" Grid.Row="1" MouseDoubleClick="ListViewWarehouse_MouseDoubleClick">
+        <ListView Name="ListViewWarehouse" Grid.Row="1" MouseDoubleClick="ListViewWarehouse_MouseDoubleClick" SelectionChanged="ListViewWarehouse_SelectionChanged">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Kod" Width="auto" DisplayMemberBinding="{Binding Code}" />
-                    <GridViewColumn Header="Nazwa" Width="auto" DisplayMemberBinding="{Binding Name}" />
-                    <GridViewColumn Header="Ilość" Width="auto" DisplayMemberBinding="{Binding Quantity}" />
-                    <GridViewColumn Header="Jednostka" Width="auto" DisplayMemberBinding="{Binding EnumUnit}" />
-                    <GridViewColumn Header="Cena jednostkowa" Width="auto" DisplayMemberBinding="{Binding Price}" />
-                    <GridViewColumn Header="Koszt" Width="auto" DisplayMemberBinding="{Binding Cost}" />
+                    <GridViewColumn Header="Kod" Width="50" DisplayMemberBinding="{Binding Code}" />
+                    <GridViewColumn Header="Nazwa" Width="150" DisplayMemberBinding="{Binding Name}" />
+                    <GridViewColumn Header="Ilość" Width="50" DisplayMemberBinding="{Binding Quantity}" />
+                    <GridViewColumn Header="Jm" Width="30" DisplayMemberBinding="{Binding EnumUnit}" />
+                    <GridViewColumn Header="Cena" Width="70" DisplayMemberBinding="{Binding Price}" />
+                    <GridViewColumn Header="Koszt" Width="70" DisplayMemberBinding="{Binding Cost}" />
 
                 </GridView>
 
             </ListView.View>
         </ListView>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Name="ButtonDelete" IsEnabled="False" Content="Usuń" Margin="0,0,0,0" Click="ButtonDelete_Click" />
+        </StackPanel>
     </Grid>
 </Window>

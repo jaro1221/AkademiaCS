@@ -1,4 +1,6 @@
 ﻿using System;
+using System.CodeDom;
+using System.Security.Cryptography;
 using System.Windows;
 using Hurtownia.Controllers;
 
@@ -38,10 +40,12 @@ namespace Hurtownia.Windows
                     discount);
                 Clients.AddClient(newClient);
                 Close();
+                MessageBox.Show("Dodano klienta: " + firstName + " " + lastName, "Sukces!");
+                
             }
             catch (Exception exception)
             {
-                MessageBox.Show(exception.Message);
+                MessageBox.Show("Sprawdz poprawność wprowadzonych danych.\nSzczegóły: " + exception.Message, "Błąd!");
             }
         }
     }

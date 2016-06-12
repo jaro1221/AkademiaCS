@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows;
+using System.Windows.Input;
 using Hurtownia.Classes;
 using Hurtownia.Controllers;
 
@@ -47,11 +48,18 @@ namespace Hurtownia.Windows
 
                 Products.EditProduct(new Product(name, code, ean, price, quantity, unit), Index);
                 Close();
+                MessageBox.Show("Dane produktu zostały zmienione pomyślnie", "Sukces!");
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Sprawdz poprawność wprowadzonych danych.\nSzczegóły: " + ex.Message, "Błąd!");
             }
+        }
+
+        private void TextBoxCode_OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            Random rand = new Random();
+            TextBoxCode.Text = rand.Next(100000, 999999).ToString();
         }
     }
 }
