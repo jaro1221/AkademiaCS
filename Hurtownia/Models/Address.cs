@@ -8,14 +8,19 @@
             City = city;
             Street = street;
             Number = number;
-            FullAddress = Nation + ", " + City + " ul. " + Street + " " + Number;
         }
 
         public Address()
         {
         }
 
-        public string FullAddress { get; set; }
+        public string FullAddress {
+            get
+            {
+                return Nation + ", " + City + " ul. " + Street + " " + Number;
+
+            }
+        }
 
 
         public string Nation { get; set; }

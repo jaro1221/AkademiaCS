@@ -21,14 +21,31 @@ namespace Hurtownia.Windows
     public partial class ShowInvoiceWindow : Window
     {
         private int _index;
+        private Invoice currInvoice;
 
 
         public ShowInvoiceWindow(int index)
         {
             this._index = index;
             InitializeComponent();
-            Invoice currInvoice = Invoices.InvoicesList[_index];
+            currInvoice = Invoices.InvoicesList[_index];
+            StackPanelClient.DataContext = currInvoice.Client;
+            StackPanelInvoice.DataContext = currInvoice;
+            ListViewProducts.ItemsSource = currInvoice.ProductsList;
+            StackPanelSums.DataContext = currInvoice;
+            StackPanelToPay.DataContext = currInvoice;
+            SetLabels();
 
+        }
+
+        private void SetLabels()
+        {
+            LabelCity.Content = Company.CompanyCity;
+            LabelDate.Content = currInvoice.DateTime.Date.ToShortDateString();
+            LabelCompanyName.Content = Company.CompanyName;
+            LabelCompanyOwner.Content = Company.CompanyOwner;
+            LabelCompanyAddress.Content = Company.CompanyAddress;
+            LabelCompanyPhone.Content = Company.CompanyPhone;
         }
     }
 }

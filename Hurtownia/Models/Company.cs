@@ -10,11 +10,18 @@ namespace Hurtownia.Models
     {
         public static string CompanyName { get; set; }
         public static string CompanyOwner { get; set; }
+
+        public static string CompanyAddress
+        {
+            get { return CompanyNation + ", " + CompanyCity + ", ul. " + CompanyStreet + " " + CompanyNumber; }
+        }
+
+        public static string CompanyPhone { get; set; }
         public static string Path { get; set; } = Environment.CurrentDirectory + "..\\Files\\company.conf";
 
         public static void LoadCompany()
         {
-            string[] values = new string[2];
+            string[] values = new string[7];
             using (StreamReader sr = new StreamReader(Path))
             {
                 int i = 0;
@@ -29,7 +36,21 @@ namespace Hurtownia.Models
             }
             CompanyName = values[0];
             CompanyOwner = values[1];
+            CompanyNation = values[2];
+            CompanyCity = values[3];
+            CompanyStreet = values[4];
+            CompanyNumber = values[5];
+            CompanyPhone = values[6];
+
 
         }
+
+        public static string CompanyNumber { get; set; }
+
+        public static string CompanyStreet { get; set; }
+
+        public static string CompanyCity { get; set; }
+
+        public static string CompanyNation { get; set; }
     }
 }

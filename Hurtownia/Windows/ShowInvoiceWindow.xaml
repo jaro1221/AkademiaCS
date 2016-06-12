@@ -5,8 +5,69 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Hurtownia.Windows"
         mc:Ignorable="d"
-        Title="ShowInvoiceWindow" Height="300" Width="300">
+        Title="ShowInvoiceWindow" Height="614.8" Width="587.4">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="40"/>
+
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+            <StackPanel Name="StackPanelCompany" Width="400" Orientation="Vertical">
+                <Label FontWeight="Bold" Content="Sprzedawca:"/>
+                <Label Name="LabelCompanyName" Content="Nazwa firmy" Padding="0,0,0,0"/>
+                <Label Name="LabelCompanyOwner" Content="Właściciel" Padding="0,0,0,0"/>
+                <Label Name="LabelCompanyAddress" Content="Adres" Padding="0,0,0,0" />
+                <Label Name="LabelCompanyPhone" Content="Telefon" Padding="0,0,0,0" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Label Name="LabelCity" HorizontalAlignment="Right" HorizontalContentAlignment="Right" Content="Miasto" Width="90"/>
+                <Label Name="LabelDate" HorizontalAlignment="Right" HorizontalContentAlignment="Right" Content="Data" Width="90"/>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Name="StackPanelClient" Grid.Row="1" Orientation="Vertical">
+            <Label FontWeight="Bold" Content="Nabywca: "/>
+            <Label Content="{Binding NameString}" Padding="0,0,0,0"/>
+            <Label Content="{Binding AddressString}" Padding="0,0,0,0"/>
+            <Label Content="{Binding Nip}" Padding="0,0,0,0"/>
+        </StackPanel>
         
+        <StackPanel Name="StackPanelInvoice" Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Label FontWeight="Bold" FontSize="15" Content="Faktura nr"/>
+            <Label FontWeight="Bold" FontSize="15" Content="{Binding Number}"/>
+        </StackPanel>
+        
+        <ListView Name="ListViewProducts" Grid.Row="3">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="L.p." Width="30"  />
+                    <GridViewColumn Header="Nazwa produktu" Width="150" DisplayMemberBinding="{Binding Name}" />
+                    <GridViewColumn Header="Ilość" Width="50" DisplayMemberBinding="{Binding Quantity}" />
+                    <GridViewColumn Header="Jm" Width="30" DisplayMemberBinding="{Binding UnitString}" />
+                    <GridViewColumn Header="Cena" Width="60" DisplayMemberBinding="{Binding Price}" />
+                    <GridViewColumn Header="Kwota netto" Width="80" DisplayMemberBinding="{Binding Cost}" />
+                    <GridViewColumn Header="Podatek" Width="80" DisplayMemberBinding="{Binding TaxString}" />
+                    <GridViewColumn Header="Kwota brutto" Width="80" DisplayMemberBinding="{Binding Brutto}" />
+                </GridView>
+
+
+            </ListView.View>
+            
+        </ListView>
+        <StackPanel Name="StackPanelSums" Grid.Row="4" Orientation="Horizontal">
+            <Label FontWeight="Bold" HorizontalContentAlignment="Right" FontSize="15" Content="RAZEM" Width="325" />
+            <Label HorizontalContentAlignment="Center" FontSize="15" Content="{Binding NettoSum}" Width="80" />
+            <Label HorizontalContentAlignment="Center" FontSize="15" Content="{Binding VatSum}" Width="80" />
+            <Label HorizontalContentAlignment="Center" FontSize="15" FontWeight="Bold" Content="{Binding BruttoSum}" Width="80" />
+        </StackPanel>
+        <StackPanel Name="StackPanelToPay" Orientation="Horizontal" Grid.Row="6">
+            <Label Content="DO ZAPŁATY: " FontWeight="Bold" FontSize="20" Width="150" Margin="270,0,0,0"/>
+            <Label Content="{Binding BruttoSum}" FontWeight="Bold" Width="150" HorizontalContentAlignment="Center" FontSize="20"/>
+        </StackPanel>
     </Grid>
 </Window>

@@ -33,10 +33,8 @@
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
-            <Label Name="LabelAppName" Grid.Row="0" FontFamily="Calibri" VerticalAlignment="Top" Height="50"
-                   FontSize="30" HorizontalAlignment="Right" FontWeight="Heavy">
-                HurtManager 0.0.1
-            </Label>
+            <Label x:Name="LabelAppName" Grid.Row="0" FontFamily="Calibri" VerticalAlignment="Top" Height="50"
+        		FontSize="30" HorizontalAlignment="Right" FontWeight="Heavy" Content="HurtManager 0.1 pre-alpha"/>
             <Label Grid.Row="0" FontFamily="Calibri" VerticalAlignment="Bottom" Height="40" FontSize="20"
                    HorizontalAlignment="Right" FontWeight="Medium">
                 by imn1oy

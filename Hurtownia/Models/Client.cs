@@ -5,6 +5,16 @@ namespace Hurtownia.Controllers
 {
     public class Client : Person
     {
+        public string NameString
+        {
+            get { return base.FirstName + " " + base.LastName; }
+        }
+
+        public string AddressString
+        {
+            get { return base.FullAddress; }
+        }
+
         public Client(string nation, string city, string street, string number, string firstName, string lastName,
             DateTime dateOfBirth, string nip, int phone, float discount)
             : base(nation, city, street, number, firstName, lastName, dateOfBirth)
